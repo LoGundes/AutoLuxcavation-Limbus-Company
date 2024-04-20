@@ -58,7 +58,7 @@ WNDFind()
 Wait(1)
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 While($OptionOver = false)        
-   $d = DialogBox("• Использовать старый дизайн выбора уровня?", 4, 2)   
+   $d = DialogBox("• Использовать панель выбора уровня?(иначе запуск со старыми настройками)", 4, 2)   
    If($d = 6)
       LuxSelect()
       $OptionOver = true
