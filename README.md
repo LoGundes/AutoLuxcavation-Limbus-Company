@@ -1,3 +1,5 @@
+<div align="center">
+  
 ### [Ru]
 ## Мод/Приложение Limbus Company для автоматической Светодобычи
 • Открытый код написанный на Clickermann
