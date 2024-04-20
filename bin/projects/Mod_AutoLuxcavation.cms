@@ -20,39 +20,39 @@ $Amount =3
 $Quantity = 0
 $Quantity_Diff = 0
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
-EXECUTE("Check.bat")
-WAIT(4)
-$CheckLaunch = INIREAD("check.ini", "Process", "Check")
+//EXECUTE("Check.bat")
+//WAIT(4)
+//$CheckLaunch = INIREAD("check.ini", "Process", "Check")
 
-SWITCH($CheckLaunch)
-CASE(0)
-LOGWRITE ("Игра не запущена")
-CASE(1)
-LOGWRITE ("Игра запущена")
-END_SWITCH
-LOGWRITE (" ")
+//SWITCH($CheckLaunch)
+//CASE(0)
+//LOGWRITE ("Игра не запущена")
+//CASE(1)
+//LOGWRITE ("Игра запущена")
+//END_SWITCH
+//LOGWRITE (" ")
 
-WAIT(3)
-IF($CheckLaunch = 0)
-   WHILE($OptionOver = false)        
-      $d = DIALOGBOX("• У вас не запущена игра. Для работы программы нужно запущенное приложение. Запустить?", 4, 2)   
-      IF($d = 6)
-         EXECUTE("C:\Program Files (x86)\Steam\steamapps\common\Limbus Company\LimbusCompany.exe")
-         WAIT(7)
-         LOGWRITE ("WNDFind")
-         WNDFind()
-         LOGWRITE ($x, " ", $y, " ", $Sx, " ", $Sy)
-         LOGWRITE ("Start")
-         Start($x, $y, $Sx, $Sy)
-   			$OptionOver = true      
-      ELSE
-         HALT
-      END_IF
-      
-      WAIT(2)  
-   END_CYC
-END_IF
-Wait(1)
+//WAIT(3)
+//IF($CheckLaunch = 0)
+//   WHILE($OptionOver = false)        
+//      $d = DIALOGBOX("• У вас не запущена игра. Для работы программы нужно запущенное приложение. Запустить?", 4, 2)   
+//      IF($d = 6)
+//         EXECUTE("C:\Program Files (x86)\Steam\steamapps\common\Limbus Company\LimbusCompany.exe")
+//         WAIT(7)
+//         LOGWRITE ("WNDFind")
+//         WNDFind()
+//         LOGWRITE ($x, " ", $y, " ", $Sx, " ", $Sy)
+//         LOGWRITE ("Start")
+//         Start($x, $y, $Sx, $Sy)
+//   			$OptionOver = true      
+//      ELSE
+//         HALT
+//      END_IF
+//      
+//      WAIT(2)  
+//   END_CYC
+//END_IF
+//Wait(1)
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 WNDFind()
 Wait(1)
