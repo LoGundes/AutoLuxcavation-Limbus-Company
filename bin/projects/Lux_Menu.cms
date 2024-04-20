@@ -1,0 +1,41 @@
+﻿#name "Lux_Menu.cms"
+
+//___Включение люкскавации__
+Sub(LuxMenu, $LuxEx, $xEx, $yEx, $SxEx, $SyEx)
+   LogWrite ("LuxMenu")
+
+   If($LuxEx > 6)
+      LClick(Round(($SxEx*0,1094),0)+$xEx, Round($SxEx*0.5625*(0.4597-0.5)+0.5*$SyEx,0)+$yEx)
+      
+   else
+      LClick(Round(($SxEx*0,1094),0)+$xEx, Round($SxEx*0.5625*(0.3652-0.5)+0.5*$SyEx,0)+$yEx)
+      
+   end_if
+   Wait(2)
+   
+   LuxScroll("Left", $xEx, $yEx, $SxEx, $SyEx)
+   Wait(2)
+   
+   If($LuxEx > 6)
+      LClick(Round(($SxEx*0.3314),0)+$xEx, Round($SxEx*0.5625*(0.6654-0.5)+0.5*$SyEx,0)+$yEx)    
+			Wait(1)
+      LClick(Round(($SxEx*0.4971),0)+$xEx, Round($SxEx*0.5625*((0.3726+($LuxEx-7)*0.1437)-0.5)+0.5*$SyEx,0)+$yEx)
+      
+   else
+      If($LuxEx < 3)
+         LClick(Round(($SxEx*(0.3314+($LuxEx-1)*0.27)),0)+$xEx, Round($SxEx*0.5625*(0.6654-0.5)+0.5*$SyEx,0)+$yEx)
+      else
+         LuxScroll("Right", $xEx, $yEx, $SxEx, $SyEx)
+         Wait(3)
+         LClick(Round(($SxEx*(0.3314+($LuxEx-4)*0.27)),0)+$xEx, Round($SxEx*0.5625*(0.6654-0.5)+0.5*$SyEx,0)+$yEx)
+      end_if
+      
+   end_if
+   Wait(2)
+   
+   Move($xEx+20, $SyEx+$yEx-20)
+   
+   WNDBump(WNDFind("LimbusCompany", 0))
+   Waitms(150)
+   KeyPress(#ENTER)
+end_sub

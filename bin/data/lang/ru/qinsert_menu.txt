@@ -1,0 +1,313 @@
+﻿// Импортируемое меню редактора
+
+Мышь;
+{
+  LCLICK - Левый клик; LCLICK(10,10);
+  LCLICK - Левый клик в текущей координате; LCLICK($_xmouse,$_ymouse);
+  RCLICK - Правый клик; RCLICK(10,10);
+  MCLICK - Клик средней клавишей; MCLICK(10,10);
+  DBLCLICK - Двойной левый клик; DBLCLICK(10,10);
+  -;
+  LDOWN - Зажать левую клавишу;	LDOWN(10,10);
+  LUP - Отпустить левую клавишу;		LUP(10,10);
+  RDOWN - Зажать правую клавишу;	RDOWN(10,10);
+  RUP - Отпустить правую клавишу;		RUP(10,10);
+  MDOWN - Зажать среднюю кнопку;	MDOWN(10,10);
+  MUP - Отпустить среднюю кнопку;		MUP(10,10);
+  -;
+  MOVE - Переместить курсор;		MOVE(10,10);
+  MOVER - Переместить курсор относительно;		MOVER(10,10);
+  WHEELDOWN - Крутить колесико вниз;	WHEELDOWN;
+  WHEELUP - Крутить колесико вверх;		WHEELUP;
+}
+
+Клавиатура;
+{
+  НАБОР КЛАВИШ;
+  {
+      #1 (0-9);	KEYPRESS(#1);
+      #A (A-Z);	KEYPRESS(#A);
+      #F1 (F1-F12);	KEYPRESS(#F1);
+        -;
+      #SHIFT;	KEYPRESS(#SHIFT);
+      #CTRL;	KEYPRESS(#CTRL);
+      #ALT;	KEYPRESS(#ALT);
+      #WIN;	KEYPRESS(#WIN);
+      #RWIN;	KEYPRESS(#RWIN);
+        -;
+      #ENTER;	KEYPRESS(#ENTER);
+      #SPACE;	KEYPRESS(#SPACE);
+      #TAB;	KEYPRESS(#TAB);
+      #BACKSPACE;	KEYPRESS(#BACKSPACE);
+      #ESC;	KEYPRESS(#ESC);
+        -;
+      #PAGEUP;	KEYPRESS(#PAGEUP);
+      #PAGEDOWN;	KEYPRESS(#PAGEDOWN);
+      #HOME;	KEYPRESS(#HOME);
+      #END;	KEYPRESS(#END);
+      #INSERT;	KEYPRESS(#INSERT);
+      #DELETE;	KEYPRESS(#DELETE);
+        -;
+      #UP;	KEYPRESS(#UP);
+      #DOWN;	KEYPRESS(#DOWN);
+      #LEFT;	KEYPRESS(#LEFT);
+      #RIGHT;	KEYPRESS(#RIGHT);
+        -;
+      #CAPSLOCK;	KEYPRESS(#CAPSLOCK);
+      #NUMLOCK;	KEYPRESS(#NUMLOCK);
+      #SCROLLLOCK;	KEYPRESS(#SCROLLLOCK);
+      #PRINTSCREEN;	KEYPRESS(#PRINTSCREEN);
+      #PAUSE;	KEYPRESS(#PAUSE);
+  }
+  -;
+  KEYPRESS - Нажать клавишу;		KEYPRESS(#A);
+  KEYDOWN - Зажать клавишу;		KEYDOWN(#A);
+  KEYUP - Отпустить клавишу;		KEYUP(#A);
+  -;
+  KEYSTRING - Набрать текст;		KEYSTRING("str");
+  -;
+  GETKEYSDOWN - Поместить в массив зажатые клавиши;	GETKEYSDOWN ($arr);
+  GETKBLAYOUT - Получить код раскладки;	GETKBLAYOUT($_hwnd) //1033 En 1049 Ru;
+  SETKBLAYOUT - Установить код раскладки;	SETKBLAYOUT($_hwnd, 1033) //1033 En 1049 Ru;
+}
+  
+
+Экран;
+{
+  GETSCREEN - Снимок экрана в буфер программы;	GETSCREEN;
+  GETSCREEN() - Снимок экрана в области;	GETSCREEN(0,0,400,400);
+  SCREENSHOT - Вывод снимка в файл;	SCREENSHOT;
+  SCREENSHOTEX - Вывод снимка в файл с параметрами;	SCREENSHOTEX(0,0, $_xmax,$_ymax, "Image_", 0);
+  SCREENSHOTFIX - Вывод снимка в конкретный файл;	SCREENSHOTFIX(10,10, 50,50, "С:\file.bmp", 0); 
+  ФУНКЦИИ;
+  {
+    PXL - Получить цвет по координате;		PXL(10,10);
+    SCANPXL - Найти все пикселы;	SCANPXL($arr, 0,0, 1250,959, 255);
+    SCANPICTURE - Найти все фрагменты;	SCANPICTURE($arr, 0,0, 1250,959, "pict.bmp", -1, 100);
+    PXLCOUNT - Посчитать кол-во пикселов;	PXLCOUNT(10,10, 100,100, 255);
+    PXLXOR - Контрольная сумма цветов;	PXLXOR(10,10, 100,100);
+    PXLCRC - Контрольная сумма пикселов CRC32;	PXLCRC(10,10, 100,100);
+  }
+  ЦВЕТОКОРРЕКЦИЯ;
+  {
+    COLORMODE - Упрощение цветов;	COLORMODE(6, 10,10, 100,100);
+    COLORGEN - Генерация цвета;	COLORGEN(255,255,255);
+    COLORR - Извлечь красный;	COLORR(255);
+    COLORG - Извлечь Зеленый;	COLORG(255);
+    COLORB - Извлечь Синий;	COLORB(255);
+  }
+}
+
+Вычисления;
+{
+   DEFINE - Объявить переменную;	DEFINE($var, 0);
+   UNDEFINE - Удалить переменную;	UNDEFINE($var);
+   INC - Увеличение/Уменьшение переменной;			INC($var,1);
+   RND - Рандом из диапазона;		RND(1,5);
+   RNDFROM - Рандом из вариантов;	RNDFROM(1,3,5);
+   DIST - Вычислить расстояние между двумя точками;	DIST(0,0,3,3);
+   -;
+   INT - Целая часть числа или преобразовать строку в число;		INT(25.5);
+   SIN - Синус;		SIN(45);
+   COS - Косинус;		COS(45);
+   ARCSIN - Арксинус;		ARCSIN(45);
+   ARCCOS - Арккосинус;		ARCCOS(45);
+   SQRT - Квадратный корень;		SQRT(4);
+   POW - Возведение в степень;		POW(4,2);
+   ROUND - Округление числа;		ROUND(25.5, 0);
+   -;
+   ARRPUSH - Добавить элемент в конец массива;		ARRPUSH($arr, 123);
+   ARRPOP - Извлечь из массива последний элемент;		ARRPOP($arr);
+   ARRSIZE - Размер массива;		ARRSIZE($arr);
+   ARRSORT - Сортировка массива; ARRSORT($arr);
+   TFREADARR - Считывает массив из файла;	TFREADARR("file.txt", $arr);
+   TFWRITEARR - Записывает массив в файл;	TFWRITEARR("file.txt", $arr);
+   STRSEPARATE - Разбивает строку на подстроки в массив;	STRSEPARATE("1:2:3:4", ":", $arr);
+}
+
+Условия, циклы, подпрограммы;
+{
+  IF - Условие;
+  {
+   IF($a = $b);	IF( );
+   ELSE - Альтернатива;	ELSE;
+   END_IF - Конец условия;	END_IF;
+  }
+
+  SWITCH - Переключатель;
+  {
+  SWITCH();	SWITCH($var);
+  CASE();	CASE(1);
+  DEFAULT;	DEFAULT;
+  END_SWITCH;	END_SWITCH;
+  }
+
+  FOR - Цикл с параметром;
+  {
+  FOR();	FOR($a=0, $a < 5);
+  END_CYC;	END_CYC;
+  }
+
+  WHILE - Цикл с предусловием;
+  {
+  WHILE();	WHILE($var < 5);
+  END_CYC;	END_CYC;
+  }
+
+  SUB - Подпрограммы;
+  {
+  SUB() - Подпрограмма;	SUB(mysub);
+  END_SUB - Конец подпрограммы;	END_SUB; 
+  mysub() - Вызов подпрограммы;	mysub();
+  }
+
+  THREAD - Потоки;
+  {
+  THREAD() - Поток;	THREAD(name, 1);
+  END_THREAD - Конец потока;	END_THREAD; 
+  SETTHREAD - Смена состояния потока;	SETTHREAD (name, 0) // 0 - Пауза, 1 - Старт, 2 - Стоп;
+  }
+}
+
+Строки;
+{
+  ФУНКЦИИ;
+  {
+    STRLEN() - Длина строки;		STRLEN("string");
+    STRCUT() - Возвращает кусок строки;		STRCUT("string", 1, 3);
+    STRCUT2() - Возвращает кусок строки;		STRCUT2("string", 3, 5);
+    STRFILTER() - Фильтр строки;	STRFILTER("string", "set", 0);  
+    STRPOS() - Позиция подстроки;		STRPOS("string", "substr");
+    STRCONCAT() - Объединяет строки;	STRCONCAT("str1", "str2");
+    STRREPLACE() - Замена;	STRREPLACE("string", "substr1", "substr2");
+    STRREADLN() - Чтение из файла;	STRREADLN("input.txt", 1);
+    STRWRITELN() - Запись в файл;	STRWRITELN("out.txt","str",0);
+    STRMD5() - Возвращает md5 хеш строки;		STRMD5("string");
+    STRSEPARATE - Разбивает строку на подстроки в массив;	STRSEPARATE("1:2:3:4", ":", $arr); 
+  }
+  
+  ТЕКСТОВЫЕ ФАЙЛЫ;
+  {
+    TFREAD - Чтение из файла;	TFREAD("input.txt", 1);
+    TFWRITE - Запись в файл;	TFWRITE("input.txt", "string");
+    TFREADARR - Считывает массив из файла;	TFREADARR("file.txt", $arr);
+    TFWRITEARR - Записывает массив в файл;	TFWRITEARR("file.txt", $arr);
+    TFCOUNT - Количество строк в файле;	TFCOUNT("input.txt");
+    TFDELETE - Удаление строки из файла;	TFDELETE("input.txt", 1);
+    TFCLEAR - Очищает файл;	TFCLEAR("input.txt", 0);
+  }
+  SETVAR - Присваивает значение переменной по ее имени;	SETVAR ("$var", 1);
+  GETVAR - Возвращает значение переменной по ее имени;	$tmp = GETVAR ("$var");
+  CHAR - Возвращает символ по его коду; CHAR (65);
+  FROMCLIP() - Чтение буфера;	FROMCLIP();
+  TOCLIP - Запись в буфер;	TOCLIP("string");
+  HTTPGET - Web-запрос;	HTTPGET("url");
+  INIREAD - Считывает параметр из INI файла;	INIREAD("config.ini", "parname", "SECTION1");
+  INIWRITE - Записывает параметр в INI файл;	INIWRITE("config.ini", "parname", "value", "SECTION1");
+}
+
+
+WinAPI;
+{
+  HGET() - Возвращает HWND по координатам;		HGET(10,10);
+  HSET - Вкл/Выкл оконного режима;			HSET(12345,1);
+  HGETTEXT() - Возвращает текст на элементе;	HGETTEXT(12345);
+  HSETTEXT - Записывает текст на элемент;		HSETTEXT(12345, "text");
+  HGETPID - Возвращает PID процесса по HWND; HGETPID(12345);
+  WNDFIND() - Поиск окна по заголовку;	WNDFIND("Заголовок окна", 0);
+  WNDPOS - Перемещает окно;		WNDPOS(12345,10,10);
+  WNDSIZE - Устанавливает размер окна;		WNDSIZE(12345,10,10);
+  WNDSTATE - Сворачивает/разворачивает окно;	WNDSTATE(12345, 1);
+  WNDGETINFO - Получает инф-цию об окне;	WNDGETINFO(12345, $var1, $var2, $var3, $var4);
+  WNDSETINFO - Обновляет инф-цию об окне;	WNDSETINFO(12345, $var1, $var2, $var3, $var4);
+  WNDBUMP - Помещает окно на передний план;	WNDBUMP(12345);
+  SENDMESSAGE - Системное сообщение окну;	SENDMESSAGE(12345,123,0,0);
+  POSTMESSAGE - Системное сообщение окну;	POSTMESSAGE(12345,123,0,0);
+  GETMESSAGE - Принимает сообщение посланное кликеру;  GETMESSAGE ($var1, $var2); 
+}
+
+Log;
+{
+  LOGWRITE - Запись в лог;	LOGWRITE ("Сообщение");
+  LOGCLEAR - Очистить лог;	LOGCLEAR;
+  LOGSHOW - Показать лог;	LOGSHOW (1, 100,100);
+}
+
+Сигналы;
+{
+  SOUND - Проиграть WAV файл;	SOUND("play.wav");
+  BEEP - Системный динамик;		BEEP(800,200);
+  HINTPOPUP - Всплывающее сообщение;	HINTPOPUP("Сообщение", "Заголовок");
+}
+
+Задержки;
+{
+  Задержка 50 мс;	WAITMS(50);
+  Задержка 100 мс;	WAITMS(100);
+  Задержка 300 мс;	WAITMS(300);
+  Задержка 500 мс;	WAITMS(500);
+  Задержка 1 сек;		WAIT(1);
+  Задержка 1 мин;		WAIT(60);
+  Задержка 5 мин;		WAIT(300);
+  Задержка 10 мин;		WAIT(600);
+  Задержка 15 мин;		WAIT(900);
+  Задержка 30 мин;		WAIT(1800);
+  Задержка 1 час;		WAIT(3600);
+}
+
+Системные переменные;
+{
+  $_xmouse - Координата мыши X;	$_xmouse;
+  $_ymouse - Координата мыши Y;	$_ymouse;
+  $_xmin - Экран минимум X; $_xmin;
+  $_ymin - Экран минимум Y; $_ymin;
+  $_xmax - Экран максимум (Ширина) X;	$_xmax;
+  $_ymax - Экран максимум (Высота) Y;	$_ymax;
+  $_return1;	$_return1;
+  $_return2;	$_return2;
+  $_cursor - Код курсора;	$_cursor;
+  $_ms - Системный таймер;		$_ms;
+  $_time_t - Время Unix;	$_time_t;
+  $_time_h - Текущий час;	$_time_h;
+  $_time_m - Текущая минута;	$_time_m;
+  $_time_s - Текущая секунда;	$_time_s;
+  $_date_d - Текущее число;	$_date_d;
+  $_date_m - Текущий месяц;	$_date_m;
+  $_date_y - Текущий год;	$_date_y;
+  $_date_str - Текущая дата (дд.мм.гггг);	$_date_str;
+  $_time_str - Текущее время (чч.мм.сс);	$_time_str;
+  $_hwnd - Текущий HWND;	$_hwnd;
+  $_hwnd_self - HWND кликера;	$_hwnd_self;
+  $_ver_self - Версия программы; $_ver_self;
+  $_ver_sys - Версия системы; $_ver_sys;
+  $_arch_sys - Разрядность системы; $_arch_sys;
+  $_pdir - Текущая рабочая директория; $_pdir;
+  $_param_str - Параметры запуска программы; $_param_str;
+}
+
+Прочее;
+{
+  Name - Имя скрипта;	#name "СуперБот v1.2";
+  Include - Вставляет код из внешнего файла;	#include "mylib.cms";
+  LogFile - Запись лога в файл;	#logfile "Log.txt";
+  Autorun - Автозапуск;	#autorun;
+  Режим PS/2 мыши;	#ps2_mouse;
+  Режим PS/2 клавиатуры;	#ps2_keyboard;
+  Define - Объявляет макрос;	#define find:replace;
+  -;
+  EXECUTE - Вызывает внешний файл;	EXECUTE("some.bat");
+  INPUTBOX - Диалоговое окно ввода строки;	INPUTBOX("message", "10", 10);
+  DIALOGBOX - Диалоговое окно с кнопками;	$dialog = DIALOGBOX("Продолжить действие", 1, 2);
+  RADIOBOX - Диалоговое окно с переключателями;	$res = RADIOBOX("Выберете пункт", "1 Мясо", "2 Птица", "3 Рыба");
+  READMEM - Извлекает целое значение из памяти процесса; $var = READMEM(2080, 0x0006F2B7, 4);
+  WRITEMEM - Помещает целое значение в память процесса; WRITEMEM(2080, 0x0006F2B7, 5000, 4);
+  GETFILELIST - Помещает в массив список файлов;	 GETFILELIST($arr, "C:\*.*");
+  GETDIRLIST - Помещает в массив список каталогов;	 GETDIRLIST($arr, "C:\*");
+  skip: - Метка;	skip:;
+  GOTO(skip) - Переход к метке;		GOTO(skip);
+  HALT - Стоп;		HALT;
+  HALT(1) - Стоп и закрыть кликер;		HALT(1);
+}
+  
+  
+Разделитель; //=============================================;

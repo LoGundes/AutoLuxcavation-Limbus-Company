@@ -1,0 +1,183 @@
+﻿#autorun
+#logfile
+
+#name "Mod_AutoLuxcavation"
+
+#include "General_WNDFind.cms"
+#include "General_Start.cms"
+#include "General_Moving.cms"
+//#include "General_AltF4.cms"
+#include "Mod_Battle.cms"
+//#include "Mod_Energy.cms"
+#include "Lux_Select.cms"
+#include "Lux_Scroll.cms"
+#include "Lux_Menu.cms"
+                   
+                        ___Основное тело___
+________________________________________________________________________________
+LogClear
+$Amount =3
+$Quantity = 0
+$Quantity_Diff = 0
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+EXECUTE("Check.bat")
+WAIT(4)
+$CheckLaunch = INIREAD("check.ini", "Process", "Check")
+
+SWITCH($CheckLaunch)
+CASE(0)
+LOGWRITE ("Игра не запущена")
+CASE(1)
+LOGWRITE ("Игра запущена")
+END_SWITCH
+LOGWRITE (" ")
+
+WAIT(3)
+IF($CheckLaunch = 0)
+   WHILE($OptionOver = false)        
+      $d = DIALOGBOX("• У вас не запущена игра. Для работы программы нужно запущенное приложение. Запустить?", 4, 2)   
+      IF($d = 6)
+         EXECUTE("C:\Program Files (x86)\Steam\steamapps\common\Limbus Company\LimbusCompany.exe")
+         WAIT(7)
+         LOGWRITE ("WNDFind")
+         WNDFind()
+         LOGWRITE ($x, " ", $y, " ", $Sx, " ", $Sy)
+         LOGWRITE ("Start")
+         Start($x, $y, $Sx, $Sy)
+   			$OptionOver = true      
+      ELSE
+         HALT
+      END_IF
+      
+      WAIT(2)  
+   END_CYC
+END_IF
+Wait(1)
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+WNDFind()
+Wait(1)
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+While($OptionOver = false)        
+   $d = DialogBox("• Использовать старый дизайн выбора уровня?", 4, 2)   
+   If($d = 6)
+      LuxSelect()
+      $OptionOver = true
+   else
+      LuxSelectIni()
+      $OptionOver = true
+   end_if  
+end_cyc
+Wait(1)
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+ExitToMain($x, $y, $Sx, $Sy)
+Wait(1)
+FromMainToLux($x, $y, $Sx, $Sy)
+Wait(1)
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+While($Quantity < $Amount)
+   LogClear
+    
+   LogWrite ("Проходка №", $Quantity+1)
+   LogWrite (" ")
+   
+   LuxMenu($Lux, $x, $y, $Sx, $Sy)
+   Wait(1)
+   
+   $Attempt = 1
+   $AttemptDec = 0
+   $End_Indicator = 0
+   $Battle_Indicator = 0
+   While($Quantity = $Quantity_Diff)
+      LogWrite ("Проверка битвы №", $Attempt + 10*$AttemptDec)
+      
+      Battle_End($x, $y, $Sx, $Sy)
+      Waitms(25)
+      LogWrite (" ")
+      Battle($x, $y, $Sx, $Sy)
+      Waitms(25)
+      LogWrite (" ")
+      
+      If($Attempt / 10 = 1)      
+         LogClear
+         $Attempt = 0
+         Inc($AttemptDec, 1)
+      end_if
+      Inc($Attempt, 1)
+   end_cyc
+   
+   Inc($Quantity_Diff, 1)
+end_cyc
+Wait(1)
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+FromLuxToMain($x, $y, $Sx, $Sy)
+Wait(1)
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   
+LogWrite ("Прекращение задачи. Мяу")   
+$endsound = RND(1,12)
+Sound(sound\$endsound)
+$d = DialogBox("• Авто Люкскавация - Выполнила свою задачу!", 0, 4)
+   
+If($d = 1)
+   HALT(1)
+end_if  
+________________________________________________________________________________
+
+
+//                            ___Скриншотилка___
+//______________________________________________________________________________
+//WNDPos(WNDFind("LimbusCompany", 0), 0, 0)
+//																	  
+//For($XPG = 1920, $XPG > 599, -88)
+//   WNDSize(WNDFind("LimbusCompany", 0), $XPG, Round($XPG*0.5625 ,0))
+//   Wait(2)
+//   
+//   WNDFind()
+//   
+//   _________________
+////Экран эвента 
+////   $AnglesTest[0] = $x
+////   $AnglesTest[1] = Round($Sx*0.5625*(0-0.5)+0.5*$Sy,0)+$y
+////   $AnglesTest[2] = $Sx+$x
+////   $AnglesTest[3] = Round($Sx*0.5625*(1-0.5)+0.5*$Sy,0)+$y
+////Skip    
+//   $EventSkip[0] = Round(($Sx*0.4403),0)+$x
+//   $EventSkip[1] = Round($Sx*0.5625*(0.4032-0.5)+0.5*$Sy,0)+$y
+//   $EventSkip[2] = Round(($Sx*0.4961),0)+$x
+//   $EventSkip[3] = Round($Sx*0.5625*(0.456-0.5)+0.5*$Sy,0)+$y
+////Commence/Continue/Proceed ComConPro   
+//   $EventComConPro[0] = Round(($Sx*0.7989),0)+$x
+//   $EventComConPro[1] = Round($Sx*0.5625*(0.8341-1)+$Sy,0)+$y
+//   $EventComConPro[2] = Round(($Sx*0.9708),0)+$x
+//   $EventComConPro[3] = Round($Sx*0.5625*(0.9601-1)+$Sy,0)+$y
+////Choices/Result ChoRes   
+//   $EventChoRes[0] = Round(($Sx*0.5096),0)+$x
+//   $EventChoRes[1] = Round($Sx*0.5625*(0.1177-0.5)+0.5*$Sy,0)+$y
+//   $EventChoRes[2] = Round(($Sx*0.6712),0)+$x
+//   $EventChoRes[3] = Round($Sx*0.5625*(0.2289-0.5)+0.5*$Sy,0)+$y
+////Перещёлкивание грешников
+//LClick(Round(($SxEx*(0,6826+($Sinner-1)*0,0615)),0)+$xEx, Round($SxEx*0.5625*(0.8906-1)+$SyEx,0)+$yEx)
+////Координаты кнопки Skip
+//LClick(Round(($Sx*0,4643),0)+$x, Round($Sx*0.5625*(0,4263-0.5)+0.5*$Sy,0)+$y)
+////Координаты первого выбора
+//LClick(Round(($Sx*0,7196),0)+$x, Round($Sx*0.5625*(0,2956-0.5)+0.5*$Sy,0)+$y)
+//  
+//   $Pxl_Count = PxlCount($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], 8355839)
+
+//   //Жёлтый: 8388607 Красный: 8355839 Белый: 16777215
+//   _________________
+//   
+//   GetScreen($x, $y, $Sx+$x, $Sy+$y)
+//   ColorMode(7)
+//   
+////   $Pxl_Count = PxlCount($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], 8355839)
+//   LogWrite ("Разрешение: ", $XPG, ":", Round(($XPG*0.5625),0), " Количество пикселей: ", $Pxl_Count)
+//   ScreenShotEx($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], "Proceed_", 0)
+//   Waitms(100)
+//end_cyc
+
+//halt
+
+////$XPG = 600
+////WNDSIZE(WNDFIND("LimbusCompany", 0), $XPG, ROUND($XPG *0.625 ,0))
+////WAIT(2)
+//______________________________________________________________________________ 
