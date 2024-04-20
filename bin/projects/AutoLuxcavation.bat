@@ -26,9 +26,9 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCuDJGmL/UwkaBRSDCCHLGquE6cZ1MTy4uiSsXE8QfYwVJrD2bWYIfQa5UvYVIM52VZPgMgNGhpMdx2lIAosrA4=
+::Zh4grVQjdCyDJGyX8VAjFBVVSw2AAE+1BaAR7ebv/Nagq1k1QeADWZrP1ZibOOMS/ETwYZ8i2EV2kcYOGQhkXwe/YSMhsW1DoGWRPsiS/Qr5Tyg=
 ::YB416Ek+ZG8=
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
-start bin\Clickermann.exe "%~dp0\bin\projects\AutoLuxcavation.cms"
+start bin\Clickermann.exe "%~dp0\bin\projects\Mod_AutoLuxcavation.cms"
