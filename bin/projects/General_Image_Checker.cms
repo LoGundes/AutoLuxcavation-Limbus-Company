@@ -1,0 +1,180 @@
+﻿#name "General_Image_Checker.cms"
+
+//                            ___Тест___
+//______________________________________________________________________________
+//LogClear
+//#include "General_WNDFind.cms"
+//$Pxl = 1920
+//$Att = 0
+//$AttS = 0
+//WNDPos(WNDFind("LimbusCompany", 0), 0, 0)
+//																	  
+//For($Pxl = 1920, $Pxl > 599, -88)
+//$FindCheck = 0
+//$End_Indicator = 0
+//$Battle_Indicator = 0
+//LogWrite ("Разрешение: ", $Pxl, ":", Round($Pxl*0.5625 ,0))
+//WNDSize(WNDFind("LimbusCompany", 0), $Pxl, Round($Pxl*0.5625 ,0))
+//Waitms(500)
+
+//WNDFind()
+//______________________________________________________________________________
+
+                        ___Нахождение изображения___
+________________________________________________________________________________
+//Sub(Image_Checker, Горизонтальный-отступ, Вертикальный-отступ, Ширина, Высота, Левый-угол, Левый-угол2, Правый-угол, Правый-угол2, Множитель, Левая-граница, Правая-граница, Погрешность, Цвет, Позиция, Путь)
+Sub(Image_Checker, $xEx, $yEx, $SxEx, $SyEx, $xPos1, $yPos1, $xPos2, $yPos2, $MultPxl, $StartPxl, $FinalPxl, $ErrorPxl, $ColorPxl, $Pos, $Path)
+   LogWrite ("Image_Checker ", $Path)
+   _________________
+   $FindPos[0] = Round(($SxEx*$xPos1),0)+$xEx
+	 $FindPos[1] = Round(($SxEx*$xPos2),0)+$xEx
+	 
+   Switch($Pos)
+      Case("Up")
+         $FindPos[2] = $yEx
+         $FindPos[3] = Round(($SxEx*0,5625*$xPos2*1,5),0)+$yEx
+      Case("Mid")
+         $FindPos[2] = Round(($SxEx*$xPos1*$yPos1)+($SyEx-($SxEx*$xPos1*(1-$yPos1)))/2,0)+$yEx
+         $FindPos[3] = Round(($SxEx*$xPos2*$yPos2)+($SyEx-($SxEx*$xPos2*(1-$yPos2)))/2,0)+$yEx
+      Case("Down")
+         $FindPos[2] = Round($SxEx*0.5625*($xPos1-1)+$SyEx,0)+$yEx
+         $FindPos[3] = Round($SxEx*0.5625*($xPos2-1)+$SyEx,0)+$yEx
+   end_switch
+   _________________
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -	    
+   If($FindCheck = 0)
+      For($count = (17-Round(($SxEx-500)/88 ,0)), $count < 17)
+         GetScreen($xEx, $yEx, $SxEx+$xEx, $SyEx+$yEx)
+         ColorMode(7)
+         $LeftPxl = $MultPxl*(16-$count)+$StartPxl*(17-$count)
+         $RightPxl = $MultPxl*(16-$count)+$FinalPxl*(17-$count)+$ErrorPxl
+         $PxlCount = PxlCount($FindPos[0], $FindPos[2], $FindPos[1], $FindPos[3], $ColorPxl)
+   			
+//   LogWrite ($count, ". Имеется: ", $PxlCount," | Надо: ", $LeftPxl, "-", $RightPxl)
+   			If($PxlCount > $LeftPxl and $PxlCount < $RightPxl) 
+            If_Picture_In ($FindPos[0], $FindPos[2], $FindPos[1], $FindPos[3], StrConCat("bmp\", $Path, "_", $count, ".bmp"), 0, 91)
+               $FindCheck = $count
+               LogWrite (StrConCat("Изображение найдено - ", $Path, "_"), $count)   
+               Waitms(25)
+               $count = 20
+            end_if
+         end_if
+      end_cyc
+   end_if   
+-   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+   GetScreen($xEx, $yEx, $SxEx+$xEx, $SyEx+$yEx)
+   ColorMode(7)
+   LogWrite (" Индикатор №", $FindCheck, " Имеется: ", $PxlCount," | Надо: ", $LeftPxl, "-", $RightPxl)
+   If($PxlCount > $LeftPxl and $PxlCount < $RightPxl and $FindCheck > 0)
+      If_Picture_In($FindPos[0], $FindPos[2], $FindPos[1], $FindPos[3], StrConCat("bmp\", $Path, "_", $FindCheck, ".bmp"), 0, 91)
+         LogWrite ("-индикатор найден-")
+         Inc($AttS, 1)
+         
+         WNDBump(WNDFind("LimbusCompany", 0))
+         Waitms(100)
+         
+         Switch($Path)
+            Case("Battle/Battle")
+               KeyPress(#P)
+               Waitms(50)
+               KeyPress(#ENTER)
+               Waitms(25)
+            Case("Battle/Victory")
+               Waitms(200)
+               KeyPress(#ENTER)
+               INC($Quantity, 1)
+            Case("Battle/Defeat")
+               Waitms(200)
+               KeyPress(#ENTER)
+            Case("Event/...")
+         end_switch
+         
+      end_if
+   end_if
+end_sub
+________________________________________________________________________________
+
+//                            ___Тест___
+//______________________________________________________________________________
+//Image_Checker($x, $y, $Sx, $Sy, 0, -1, 0,0849, -1, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle")
+//Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.15, 0.9182, 0.236, 50, 320, 475, 275, 8388607, "Mid", "Battle/Victory")
+//Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.15, 0.9182, 0.236, 50, 275, 400, 225, 8355839, "Mid", "Battle/Defeat")
+//Waitms(50)
+//Battle_End($x, $y, $Sx, $Sy)
+//Waitms(50)
+//Battle($x, $y, $Sx, $Sy)
+//Waitms(50)
+
+//ScreenShotEx($FindPos[0], $FindPos[1], $FindPos[2], $FindPos[3], "Test_", 0)
+//Inc($Att, 1)
+//LogWrite (" ")
+//end_cyc
+//LogWrite (" ")
+//LogWrite ("Количество попыток : ", $Att, ", удачных: ", $AttS)
+//halt
+//______________________________________________________________________________
+//                            ___Скриншотилка___
+//______________________________________________________________________________
+//WNDPos(WNDFind("LimbusCompany", 0), 0, 0)
+//																	  
+//For($XPG = 1920, $XPG > 599, -88)
+//   WNDSize(WNDFind("LimbusCompany", 0), $XPG, Round($XPG*0.5625 ,0))
+//   Wait(2)
+//   
+//   WNDFind()
+//   
+//   _________________
+//Экран эвента 
+//   $AnglesTest[0] = $x
+//   $AnglesTest[1] = $y
+//   $AnglesTest[2] = $x
+//   $AnglesTest[3] = $y
+
+//  
+//   $Pxl_Count = PxlCount($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], 8355839)
+
+//   //Жёлтый: 8388607 Красный: 8355839 Белый: 16777215
+//   _________________
+//   
+//   GetScreen($x, $y, $Sx+$x, $Sy+$y)
+//   ColorMode(7)
+//   
+//   $Pxl_Count = PxlCount($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], 8355839)
+//   LogWrite ("Разрешение: ", $XPG, ":", Round(($XPG*0.5625),0), " Количество пикселей: ", $Pxl_Count)
+//   ScreenShotEx($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], "Proceed_", 0)
+//   Waitms(100)
+//end_cyc
+
+//halt
+
+//$XPG = 600
+//WNDSIZE(WNDFIND("LimbusCompany", 0), $XPG, ROUND($XPG *0.625 ,0))
+//WAIT(2)
+//Экран эвента 
+//   $AnglesTest[0] = $x
+//   $AnglesTest[1] = Round($Sx*0.5625*(0-0.5)+0.5*$Sy,0)+$y
+//   $AnglesTest[2] = $Sx+$x
+//   $AnglesTest[3] = Round($Sx*0.5625*(1-0.5)+0.5*$Sy,0)+$y
+
+//Skip    
+//   $EventSkip[0] = Round(($Sx*0.4403),0)+$x
+//   $EventSkip[1] = Round($Sx*0.5625*(0.4032-0.5)+0.5*$Sy,0)+$y
+//   $EventSkip[2] = Round(($Sx*0.4961),0)+$x
+//   $EventSkip[3] = Round($Sx*0.5625*(0.456-0.5)+0.5*$Sy,0)+$y
+//Commence/Continue/Proceed ComConPro   
+//   $EventComConPro[0] = Round(($Sx*0.7989),0)+$x
+//   $EventComConPro[1] = Round($Sx*0.5625*(0.8341-1)+$Sy,0)+$y
+//   $EventComConPro[2] = Round(($Sx*0.9708),0)+$x
+//   $EventComConPro[3] = Round($Sx*0.5625*(0.9601-1)+$Sy,0)+$y
+//Choices/Result ChoRes   
+//   $EventChoRes[0] = Round(($Sx*0.5096),0)+$x
+//   $EventChoRes[1] = Round($Sx*0.5625*(0.1177-0.5)+0.5*$Sy,0)+$y
+//   $EventChoRes[2] = Round(($Sx*0.6712),0)+$x
+//   $EventChoRes[3] = Round($Sx*0.5625*(0.2289-0.5)+0.5*$Sy,0)+$y
+//Перещёлкивание грешников
+//LClick(Round(($SxEx*(0,6826+($Sinner-1)*0,0615)),0)+$xEx, Round($SxEx*0.5625*(0.8906-1)+$SyEx,0)+$yEx)
+//Координаты кнопки Skip
+//LClick(Round(($Sx*0,4643),0)+$x, Round($Sx*0.5625*(0,4263-0.5)+0.5*$Sy,0)+$y)
+//Координаты первого выбора
+//LClick(Round(($Sx*0,7196),0)+$x, Round($Sx*0.5625*(0,2956-0.5)+0.5*$Sy,0)+$y)
+//______________________________________________________________________________ 
