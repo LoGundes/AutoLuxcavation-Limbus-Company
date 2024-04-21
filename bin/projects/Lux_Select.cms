@@ -12,7 +12,18 @@ Sub(LuxSelect)
          HALT(1)   
       end_if
 			IniWrite("config.ini", "Stage", $Lux, "Luxcavation Grind Info")
-			LogWrite ("Номер люкскавации: ", $Lux) 
+			LogWrite ("Номер люкскавации: ", $Lux)
+			
+			While($OptionOver1 = false)
+   			$d = DialogBox("• Использовать панель выбора уровня?(иначе запуск со старыми настройками)", 4, 2)   
+         If($d = 6)
+            $Damage = 1
+            $OptionOver = true
+         else
+            $Damage = 0
+            $OptionOver1 = true
+         end_if
+			end_cyc 
 			                           
       //_Выбор количества итерации_
       $Amount = INPUTBOX("• Сколько раз необходимо зачистить этап?", "Введите сюда число", 30)

@@ -89,6 +89,10 @@ Sub(Image_Checker, $xEx, $yEx, $SxEx, $SyEx, $xPos1, $yPos1, $xPos2, $yPos2, $Mu
             
             Switch($Path)
                Case("Battle/Battle")
+                  If($Damage = 1)
+                     KeyPress(#P)
+                     Waitms(50)
+                  end_if
                   KeyPress(#P)
                   Waitms(50)
                   KeyPress(#ENTER)
