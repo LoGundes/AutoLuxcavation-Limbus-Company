@@ -89,12 +89,15 @@ While($Quantity < $Amount)
    end_cyc
    While($Quantity = $Quantity_Diff)
       LogWrite ("Проверка битвы №", $Attempt + 10*$AttemptDec)
-
+      Image_Checker($x, $y, $Sx, $Sy, ?, ?, ?, ?, ?, ?, ?, ?, 16777215, "Mid", "Event/Skip", 3)
+      If()
+      end_if
       Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.15, 0.9182, 0.236, 50, 320, 475, 275, 8388607, "Mid", "Battle/Victory", 1)
       Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.15, 0.9182, 0.236, 50, 275, 400, 225, 8355839, "Mid", "Battle/Defeat", 2)
       LogWrite (" ")
       Image_Checker($x, $y, $Sx, $Sy, 0, -1, 0.0849, -1, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle", 0)
       LogWrite (" ")
+      Waitms(100)
       
       If($Attempt / 10 = 1)      
          LogClear
