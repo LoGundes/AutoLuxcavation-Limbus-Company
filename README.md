@@ -43,7 +43,7 @@
 Перейдите на страницу
 [последней версии](https://github.com/LoGundes/AutoLuxcavattion_Limbus/releases/latest)
 
-и вручную скачайте архив с именем `AutoLuxcavattion_Limbus_vX.Y.Z.tgz` (или
+и вручную скачайте архив с именем `AutoLuxcavattion_Limbus_vX.Y.Z.zip` (или
 `AutoLuxcavattion_Limbus_vX.Y.Z.tar.gz`, если вам не нравится `.zip`). Этот архив содержит сам мод
 Автоматической Светодобычи.
 
