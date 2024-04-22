@@ -55,11 +55,11 @@
 
 Это откроет папку установки в проводнике. Как правило, у Steam эта папка расположена в:
 
-| Операционная система | Путь к папке установки                                               |
-| -------------------- | -------------------------------------------------------------------- |
-| **MS Windows**       | `C:\Program Files\Steam\steamapps\common\LimbusCompany`              |
-| **macOS**            | `~/Library/Application Support/Steam/steamapps/common/LimbusCompany` |
-| **GNU/Linux**        | `~/.local/share/Steam/steamapps/common/LimbusCompany`                |
+| Операционная система | Путь к папке установки                                                |
+| -------------------- | --------------------------------------------------------------------- |
+| **MS Windows**       | `C:\Program Files\Steam\steamapps\common\Limbus Company`              |
+| **macOS**            | `~/Library/Application Support/Steam/steamapps/common/Limbus Company` |
+| **GNU/Linux**        | `~/.local/share/Steam/steamapps/common/Limbus Company`                |
 
 ### Шаг 3. Установка мода
 
