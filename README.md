@@ -54,11 +54,11 @@
 
 Это откроет папку установки в проводнике. Как правило, у Steam эта папка расположена в:
 
-| Операционная система | Путь к папке установки                                           |
-| -------------------- | ---------------------------------------------------------------- |
-| **MS Windows**       | `C:\Program Files\Steam\steamapps\common\CrossCode`              |
-| **macOS**            | `~/Library/Application Support/Steam/steamapps/common/CrossCode` |
-| **GNU/Linux**        | `~/.local/share/Steam/steamapps/common/CrossCode`                |
+| Операционная система | Путь к папке установки                                               |
+| -------------------- | -------------------------------------------------------------------- |
+| **MS Windows**       | `C:\Program Files\Steam\steamapps\common\LimbusCompany`              |
+| **macOS**            | `~/Library/Application Support/Steam/steamapps/common/LimbusCompany` |
+| **GNU/Linux**        | `~/.local/share/Steam/steamapps/common/LimbusCompany`                |
 
 ### Шаг 3. Установка мода
 
