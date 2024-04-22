@@ -1,0 +1,15 @@
+﻿#name "General_AltF4"
+
+//___Выключение___
+SUB(AltF4, $xEx, $yEx)
+   LCLICK($xEx+10, $yEx+10)
+   WAIT(1)
+   KEYDOWN(#ALT)
+   WAIT(1)      
+   KEYPRESS(#F4)
+   WAIT(1)
+   KEYUP(#ALT)
+   WAIT(5)
+         
+   HALT(1)
+END_SUB 

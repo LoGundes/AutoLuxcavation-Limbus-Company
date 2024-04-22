@@ -1,0 +1,54 @@
+﻿#name "Lux_Select.cms"
+
+//___Настройка только при запуске___
+Sub(LuxSelect)
+   LogWrite ("LuxSelect")
+   While($OptionOver = false)
+      //_Выбор уровня_         
+      $d = DialogBox("      ВНИМАНИЕ!      Имейте ввиду, что эта программа фармилка будет успешно выполнять свою работу, только при условии, что вы обладаете сильной командой, которая легко разберётся с противниками.", 0, 3)
+			   
+			$Lux = RADIOBOX("• Выберите этап", "Stage 01 - 8 LV", "Stage 02 - 18 LV", "Stage 03 - 28 LV", "Stage 04 - 33 LV", "Stage 05 - 38 LV", "Stage 06 - 43 LV", "Thread Lux - 20 LV", "Thread Lux - 30 LV", "Thread Lux - 40 LV")
+      If($Lux < 1 or $Lux > 9)
+         HALT(1)   
+      end_if
+			IniWrite("config.ini", "Stage", $Lux, "Luxcavation Grind Info")
+			LogWrite ("Номер люкскавации: ", $Lux)
+			                           
+      //_Выбор количества итерации_
+      $Amount = INPUTBOX("• Сколько раз необходимо зачистить этап?", "Введите сюда число", 30)
+      If($Lux < 1)
+         HALT(1)   
+      end_if
+			IniWrite("config.ini", "Grind Counts", $Amount, "Luxcavation Grind Info")
+      LogWrite ("Количество проходок: ", $Amount)
+      
+      If($d = 1)
+         $OptionOver = true
+      end_if
+      Wait(1)  
+   end_cyc
+	 
+	 While($OptionOver1 = false)
+   	 If($Lux > 6)
+         $d = DialogBox("• Использовать Damage вместо Winrate для прохождения?", 4, 2)   
+         If($d = 6)
+            $Damage = 1
+            $OptionOver1 = true
+         else
+            $Damage = 0
+            $OptionOver1 = true
+         end_if
+      else
+         $OptionOver1 = true
+      end_if
+   end_cyc 
+end_sub
+
+Sub(LuxSelectIni)
+   LogWrite ("LuxSelectIni")
+   $Lux = IniRead("config.ini", "Stage", "Luxcavation Grind Info")
+   $Amount = IniRead("config.ini", "Grind Counts", "Luxcavation Grind Info")
+   
+   LogWrite ("Номер люкскавации: ", $Lux)
+   LogWrite ("Количество проходок: ", $Amount)
+end_sub

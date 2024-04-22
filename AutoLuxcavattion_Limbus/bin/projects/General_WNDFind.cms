@@ -1,0 +1,21 @@
+﻿#name "General_WNDFind.cms"
+   
+//Запись адреса окна и выравнивание захвата
+Sub(WNDFind)
+   LogWrite ("WNDFind")
+   
+   $UpLeft = HGet($_xmin, $_ymin)
+   $DownRight = HGet($_xmax, $_ymax)
+   
+   If($UpLeft = $DownRight)
+      LogWrite ("Полноэкранный режим")
+      WNDGetInfo(WNDFind("LimbusCompany", 0), $x, $y, $Sx, $Sy)
+   else
+      LogWrite ("Оконный режим")
+      WNDGetInfo(WNDFind("LimbusCompany", 0), $x, $y, $Sx, $Sy)
+      $x = $x + 8
+      $y = $y + 31
+      $Sx = $Sx - 16
+      $Sy = $Sy - 39
+   end_if
+end_sub
