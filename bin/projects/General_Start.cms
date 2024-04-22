@@ -1,7 +1,39 @@
 ﻿#name "General_Start"           
 
+Execute("Check.vbs")
+Wait(1)
+$CheckLaunch = IniRead("check.ini", "Process", "Check")
+
+Switch($CheckLaunch)
+   Case(0)
+   LogWrite ("Игра не запущена")
+   Case(1)
+   LogWrite ("Игра запущена")
+end_switch
+LogWrite (" ")
+
+If($CheckLaunch = 0)
+   While($OptionOver = false)        
+      $d = DialogBox("• У вас не запущена игра. Для работы программы нужно запущенное приложение. Запустить?", 4, 2)   
+      If($d = 6)
+         Execute("Start.vbs")
+         WAIT(7)
+         LogWrite ("WNDFind")
+         WNDFind()
+         Start($x, $y, $Sx, $Sy)
+   			$OptionOver = true      
+      else
+         halt
+      end_if
+      Wait(2)  
+   end_cyc
+end_if
+
+Wait(1)
+
 //___Запуск игры___
 SUB(Start, $xEx, $yEx, $SxEx, $SyEx)
+LOGWRITE ("General_Start")
 LOGWRITE ($xEx, " ", $yEx, " ", $SxEx, " ", $SyEx)
 //_Пропуск главного экрана_   
 FOR($i=0,$i<1,0)

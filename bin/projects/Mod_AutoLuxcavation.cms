@@ -4,7 +4,7 @@
 
 #include "General_WNDFind.cms"
 #include "General_Image_Checker.cms"
-#include "General_Start.cms"
+//#include "General_Start.cms"
 #include "General_Moving.cms"
 //#include "General_AltF4.cms"
 //#include "Mod_Energy.cms"
@@ -18,40 +18,6 @@ LogClear
 $Amount =3
 $Quantity = 0
 $Quantity_Diff = 0
--   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
-//EXECUTE("Check.bat")
-//WAIT(4)
-//$CheckLaunch = INIREAD("check.ini", "Process", "Check")
-
-//SWITCH($CheckLaunch)
-//CASE(0)
-//LOGWRITE ("Игра не запущена")
-//CASE(1)
-//LOGWRITE ("Игра запущена")
-//END_SWITCH
-//LOGWRITE (" ")
-
-//WAIT(3)
-//IF($CheckLaunch = 0)
-//   WHILE($OptionOver = false)        
-//      $d = DIALOGBOX("• У вас не запущена игра. Для работы программы нужно запущенное приложение. Запустить?", 4, 2)   
-//      IF($d = 6)
-//         EXECUTE("C:\Program Files (x86)\Steam\steamapps\common\Limbus Company\LimbusCompany.exe")
-//         WAIT(7)
-//         LOGWRITE ("WNDFind")
-//         WNDFind()
-//         LOGWRITE ($x, " ", $y, " ", $Sx, " ", $Sy)
-//         LOGWRITE ("Start")
-//         Start($x, $y, $Sx, $Sy)
-//   			$OptionOver = true      
-//      ELSE
-//         HALT
-//      END_IF
-//      
-//      WAIT(2)  
-//   END_CYC
-//END_IF
-//Wait(1)
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 WNDFind()
 Wait(1)
@@ -90,16 +56,7 @@ While($Quantity < $Amount)
    end_cyc
    While($Quantity = $Quantity_Diff)
       LogWrite ("Проверка битвы №", $Attempt + 10*$AttemptDec)
-      
-//      Image_Checker($x, $y, $Sx, $Sy, ?, ?, ?, ?, ?, ?, ?, ?, 16777215, "Mid", "Event/Skip", 3)
-//      If($FindCheck[3] > 0)
-//         $FindCheck[0] = 0
-//         While($FindCheck[3] > 0)
-//            Image_Checker($x, $y, $Sx, $Sy, 0, -1, 0.0849, -1, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle", 0)
-//         end_cyc
-//         $FindCheck[3] = 0
-//      end_if
-      
+
       Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.1500, 0.9182, 0.2360, 50, 320, 475, 275, 8388607, "Mid", "Battle/Victory", 1)
       Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.1500, 0.9182, 0.2360, 50, 275, 400, 225, 8355839, "Mid", "Battle/Defeat", 2)
       LogWrite (" ")

@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCuDJGmL/UwkaBRSDCCHLGquE6cZ1MTy4uiSsXE8QfYwVJrD2bWYIfQa5UvYd58j6nNZl8UwABRfcVyibQBU
+::fBw5plQjdCyDJGmW+0UiKRYUag2OOXj6Tq1EvqHH3P6Co0AhR/Y6eYLayqSdHOMc50jre6oB33dYjdhMLxRVbhOldzMVvHpNmnGdNMaKshv1Q0eH2Wc5FmdhlF/ShSUHadBnlP8P3CexskT8kMU=
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -26,9 +26,10 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGyX8VAjFBVVSw2AAE+1BaAR7ebv/Nagq1k1QeADWZrP1ZibOOMS/ETwYZ8i2EV2kcYOGQhkXwe/YSMhsW1DoGWRPsiS/Qr5Tyg=
+::Zh4grVQjdCyDJGmW+0UiKRYUag2OOXj6Tq1EvqHH3P6Co0AhR/Y6eYLayqSdHOMc50jre6oB33dYjdhMLxRVbhOldzMVvHpNmnGdNMaKshv1Q0eH2Wc5FmdhlF/xmT80TMZwmcIV0jS380Oxmr0VsQ==
 ::YB416Ek+ZG8=
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
+@echo off
 start bin\Clickermann.exe "%~dp0\bin\projects\Mod_AutoLuxcavation.cms"
