@@ -86,7 +86,7 @@
 
 ## Разные вопросы о легальности
 
-Я никак не связан с [ProjectMoon](https://twitter.com/ProjMoonStudio.
+Я никак не связан с [ProjectMoon](https://twitter.com/ProjMoonStudio).
 Разрешениz на распространение мода у меня нет и используйте его
 на свой страх и риск.
 
