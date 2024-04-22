@@ -40,29 +40,24 @@ Sub(Image_Checker, $xEx, $yEx, $SxEx, $SyEx, $xPos1, $yPos1, $xPos2, $yPos2, $Mu
          $FindPos[2] = Round($SxEx*0.5625*($xPos1-1)+$SyEx,0)+$yEx
          $FindPos[3] = Round($SxEx*0.5625*($xPos2-1)+$SyEx,0)+$yEx
    end_switch
+   
+   $LeftPxl = $MultPxl*(16-$FindCheck[$Num])+$StartPxl*(17-$FindCheck[$Num])
+   $RightPxl = $MultPxl*(16-$FindCheck[$Num])+$FinalPxl*(17-$FindCheck[$Num])+$ErrorPxl
+   $PxlCount = PxlCount($FindPos[0], $FindPos[2], $FindPos[1], $FindPos[3], $ColorPxl)
    _________________
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
-   If($Indicator[$Num] = 0)	    
+   If($FindCheck[$Num] = 0)	    
       For($count = (17-Round(($SxEx-500)/88 ,0)), $count < 17)
          GetScreen($xEx, $yEx, $SxEx+$xEx, $SyEx+$yEx)
          ColorMode(7)
          $LeftPxl = $MultPxl*(16-$count)+$StartPxl*(17-$count)
          $RightPxl = $MultPxl*(16-$count)+$FinalPxl*(17-$count)+$ErrorPxl
          $PxlCount = PxlCount($FindPos[0], $FindPos[2], $FindPos[1], $FindPos[3], $ColorPxl)
-   			
+	
 //      LogWrite ($count, ". Имеется: ", $PxlCount," | Надо: ", $LeftPxl, "-", $RightPxl)
    			If($PxlCount > $LeftPxl and $PxlCount < $RightPxl) 
             If_Picture_In ($FindPos[0], $FindPos[2], $FindPos[1], $FindPos[3], StrConCat("bmp\", $Path, "_", $count, ".bmp"), 0, 92)
-            
-               Switch($Path)
-               Case("Battle/Battle")
-                  $FindCheck[$Num] = $count
-               Case("Battle/Victory")
-                  $FindCheck[$Num] = $count
-               Case("Battle/Defeat")
-                  $FindCheck[$Num] = $count
-               Case("Event/...")
-               end_switch
+               $FindCheck[$Num] = $count
 							 
                LogWrite (StrConCat("Изображение найдено - ", $Path, "_"), $count)   
                Waitms(25)
@@ -89,15 +84,17 @@ Sub(Image_Checker, $xEx, $yEx, $SxEx, $SyEx, $xPos1, $yPos1, $xPos2, $yPos2, $Mu
             
             Switch($Path)
                Case("Battle/Battle")
-                  If($Damage = 1)
+                  If($FindCheck[3] = 0)
+                     If($Damage = 1)
+                        KeyPress(#P)
+                        Waitms(50)
+                     end_if
                      KeyPress(#P)
                      Waitms(50)
+                     KeyPress(#ENTER)
+                     Waitms(25)
+                     Sound(sound\Dice_Roll)
                   end_if
-                  KeyPress(#P)
-                  Waitms(50)
-                  KeyPress(#ENTER)
-                  Waitms(25)
-                  Sound(sound\Dice_Roll)
                Case("Battle/Victory")
                   Waitms(200)
                   KeyPress(#ENTER)
@@ -105,7 +102,24 @@ Sub(Image_Checker, $xEx, $yEx, $SxEx, $SyEx, $xPos1, $yPos1, $xPos2, $yPos2, $Mu
                Case("Battle/Defeat")
                   Waitms(200)
                   KeyPress(#ENTER)
-               Case("Event/...")
+               Case("Event/Skip")
+                  LClick(Round(($Sx*0,4643),0)+$x, Round($Sx*0.5625*(0,4263-0.5)+0.5*$Sy,0)+$y)
+                  Waitms(25)
+               Case("Event/Choiced")
+                  LClick(Round(($Sx*0,7196),0)+$x, Round($Sx*0.5625*(0,2956-0.5)+0.5*$Sy,0)+$y)
+                  Waitms(25)
+                  LClick(Round(($SxEx*(0,6826+($Sinner-1)*0,0615)),0)+$xEx, Round($SxEx*0.5625*(0.8906-1)+$SyEx,0)+$yEx)
+                  Waitms(25)
+               Case("Event/Result")
+               Case("Event/Commence")
+                  LClick($x, $y)
+                  Waitms(25)
+               Case("Event/Continue")
+                  LClick($x, $y)
+                  Waitms(25)
+               Case("Event/Proceed")
+                  LClick($x, $y)
+                  Waitms(25)
             end_switch
             
          end_if

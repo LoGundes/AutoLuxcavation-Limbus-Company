@@ -32,6 +32,16 @@ Sub(ExitToMain, $xEx, $yEx, $SxEx, $SyEx)
    LogWrite ("ExitToMain")
    WNDBump(WNDFind("LimbusCompany", 0))
    Waitms(150)
+//   Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle", 0)
+//   If($FindCheck[0] > 0)
+//      KeyPress(#ESC)
+//      Waitms(800)
+//      LClick(Round(($SxEx*0,5206),0)+$xEx, Round($SxEx*0.5625*(0.886-1)+$SyEx,0)+$yEx)
+//      Wait(1)
+//      While()
+//      end_cyc
+//      $Exit = 1
+//   end_if
    KeyPress(#ESC)
    Waitms(800)
    KeyPress(#ESC)
