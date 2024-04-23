@@ -2,20 +2,22 @@
 
 //                            ___Тест___
 //______________________________________________________________________________
-//LogClear
-//#include "General_WNDFind.cms"
-//$Pxl = 1920
+LogClear
+#include "General_WNDFind.cms"
+$Pxl = 1920
 //$Att = 0
 //$AttS = 0
 //WNDPos(WNDFind("LimbusCompany", 0), 0, 0)
-//																	  
+$Sinner = 0																	  
 //For($Pxl = 1920, $Pxl > 599, -88)
-//$FindCheck = 0
-//LogWrite ("Разрешение: ", $Pxl, ":", Round($Pxl*0.5625 ,0))
+For($i = 0, $i < 10)
+   $FindCheck[$i] = 0
+end_cyc
+
 //WNDSize(WNDFind("LimbusCompany", 0), $Pxl, Round($Pxl*0.5625 ,0))
 //Waitms(500)
 
-//WNDFind()
+WNDFind()
 //______________________________________________________________________________
 
                         ___Нахождение изображения___
@@ -42,6 +44,7 @@ Sub(Image_Checker, $xEx, $yEx, $SxEx, $SyEx, $xPos1, $yPos1, $xPos2, $yPos2, $Mu
    $LeftPxl = $MultPxl*(16-$FindCheck[$Num])+$StartPxl*(17-$FindCheck[$Num])
    $RightPxl = $MultPxl*(16-$FindCheck[$Num])+$FinalPxl*(17-$FindCheck[$Num])+$ErrorPxl
    $PxlCount = PxlCount($FindPos[0], $FindPos[2], $FindPos[1], $FindPos[3], $ColorPxl)
+//   ScreenShotEx($FindPos[0], $FindPos[2], $FindPos[1], $FindPos[3], "Test_", 0)
    _________________
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
    If($FindCheck[$Num] = 0)	    
@@ -101,22 +104,24 @@ Sub(Image_Checker, $xEx, $yEx, $SxEx, $SyEx, $xPos1, $yPos1, $xPos2, $yPos2, $Mu
                   Waitms(200)
                   KeyPress(#ENTER)
                Case("Event/Skip")
-                  LClick(Round(($Sx*0,4643),0)+$x, Round($Sx*0.5625*(0,4263-0.5)+0.5*$Sy,0)+$y)
+                  LClick(Round(($SxEx*0,4643),0)+$xEx, Round($SxEx*0.5625*(0,4263-0.5)+0.5*$SyEx,0)+$yEx)
                   Waitms(25)
-               Case("Event/Choiced")
-                  LClick(Round(($Sx*0,7196),0)+$x, Round($Sx*0.5625*(0,2956-0.5)+0.5*$Sy,0)+$y)
+               Case("Event/Choices")
+                  LClick(Round(($SxEx*0,7196),0)+$xEx, Round($SxEx*0.5625*(0,2956-0.5)+0.5*$SyEx,0)+$yEx)                  
                   Waitms(25)
-                  LClick(Round(($SxEx*(0,6826+($Sinner-1)*0,0615)),0)+$xEx, Round($SxEx*0.5625*(0.8906-1)+$SyEx,0)+$yEx)
+               Case("Event/Mark")
+                  LClick(Round(($SxEx*(0,0610+$Sinner*0,0615)),0)+$xEx, Round($SxEx*0.5625*(0.9064-1)+$SyEx,0)+$yEx)
                   Waitms(25)
-               Case("Event/Result")
+                  Inc($Sinner, 1)
+                  Waitms(25)
                Case("Event/Commence")
-                  LClick($x, $y)
+                  LClick(Round(($SxEx*0.8833),0)+$xEx, Round($SxEx*0.5625*(0.9018-1)+$SyEx,0)+$yEx)
                   Waitms(25)
                Case("Event/Continue")
-                  LClick($x, $y)
+                  LClick(Round(($SxEx*0.8833),0)+$xEx, Round($SxEx*0.5625*(0.9018-1)+$SyEx,0)+$yEx)
                   Waitms(25)
                Case("Event/Proceed")
-                  LClick($x, $y)
+                  LClick(Round(($SxEx*0.8833),0)+$xEx, Round($SxEx*0.5625*(0.9018-1)+$SyEx,0)+$yEx)
                   Waitms(25)
             end_switch
             
@@ -128,6 +133,46 @@ ________________________________________________________________________________
 
 //                            ___Тест___
 //______________________________________________________________________________
+//For($f = 0, $f < 1, 0)
+//Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.1500, 0.9182, 0.2360, 50, 320, 475, 275, 8388607, "Mid", "Battle/Victory", 1)
+//Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.1500, 0.9182, 0.2360, 50, 275, 400, 225, 8355839, "Mid", "Battle/Defeat", 2)
+//LogWrite (" ")
+//Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle", 0)
+//LogWrite (" ")
+
+//For($g = 0, $g < 1, 0)
+//      
+//Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100, 175, 250, 25, 16777215, "Mid", "Event/Skip", 3)
+//Move($Sx+$x-2020, $y+20)
+//If($FindCheck[3] > 0)
+//   $FindCheck[0] = 0
+//   $Sinner = 0
+//   While($FindCheck[3] > 0)
+//      Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100, 175, 250, 25, 16777215, "Mid", "Event/Skip", 3)
+//      Move($Sx+$x-2020, $y+20)
+//      Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle", 0)
+//      
+//      Image_Checker($x, $y, $Sx, $Sy, 0.5096, 0.0750, 0.6712, 0.1750, -100, 165, 260, 75, 16777215, "Mid", "Event/Choices", 4)
+//      If($FindCheck[4] > 0)
+//         Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1100, 1700, 2175, 200, 8355839, "Down", "Event/Proceed", 5)
+//         Image_Checker($x, $y, $Sx, $Sy, 0.8895, 0.3350, 0.9156, 0.3530, -30, 70, 100, 100, 8388607, "Mid", "Event/Mark", 6)
+//         Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839, "Down", "Event/Commence", 7)
+//      end_if
+//      Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839, "Down", "Event/Continue", 8)
+//      
+//      If($Sinner = 6)
+//         $Sinner = 0
+//      end_if
+//      If($FindCheck[5] > 0)
+//         $FindCheck[4] = 0
+//      end_if
+//      
+//   end_cyc
+//   $FindCheck[3] = 0
+//end_if
+
+//end_cyc
+//end_cyc
 //Skip    
 //   $EventSkip[0] = Round(($Sx*0.4403),0)+$x
 //   $EventSkip[1] = Round($Sx*0.5625*(0.4032-0.5)+0.5*$Sy,0)+$y
@@ -144,105 +189,51 @@ ________________________________________________________________________________
 //   $EventChoRes[2] = Round(($Sx*0.6712),0)+$x
 //   $EventChoRes[3] = Round($Sx*0.5625*(0.2289-0.5)+0.5*$Sy,0)+$y
 //Жёлтый: 8388607 Красный: 8355839 Белый: 16777215
-      
-//Image_Checker($x, $y, $Sx, $Sy, ?, ?, ?, ?, ?, ?, ?, ?, 16777215, "Mid", "Event/Skip", 3)
-//If($FindCheck[3] > 0)
-//   $FindCheck[0] = 0
-//   While($FindCheck[3] > 0)
-//      Image_Checker($x, $y, $Sx, $Sy, ?, ?, ?, ?, ?, ?, ?, ?, 16777215, "Mid", "Event/Skip", 3)
-//      Image_Checker($x, $y, $Sx, $Sy, 0, -1, 0.0849, -1, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle", 0)
-//      
-//      Image_Checker($x, $y, $Sx, $Sy, ?, ?, ?, ?, ?, ?, ?, ?, 16777215, "Mid", "Event/Choices", 3)
-//      If($FindCheck[3] > 0)
-//         Image_Checker($x, $y, $Sx, $Sy, ?, ?, ?, ?, ?, ?, ?, ?, 8355839, "Down", "Event/Proceed", 3)
-//         Image_Checker($x, $y, $Sx, $Sy, ?, ?, ?, ?, ?, ?, ?, ?, 16777215, "Mid", "Event/Mark", 3)
-//         Image_Checker($x, $y, $Sx, $Sy, ?, ?, ?, ?, ?, ?, ?, ?, 8355839, "Down", "Event/Commence", 3)
-//         Image_Checker($x, $y, $Sx, $Sy, ?, ?, ?, ?, ?, ?, ?, ?, 8355839, "Down", "Event/Continue", 3)
-//      end_if
-//      $FindCheck[3] = 0
-//   end_cyc
-//   $FindCheck[3] = 0
-//end_if
-
-//Image_Checker($x, $y, $Sx, $Sy, 0, -1, 0,0849, -1, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle")
-//Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.15, 0.9182, 0.236, 50, 320, 475, 275, 8388607, "Mid", "Battle/Victory")
-//Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.15, 0.9182, 0.236, 50, 275, 400, 225, 8355839, "Mid", "Battle/Defeat")
-//Waitms(50)
-//Battle_End($x, $y, $Sx, $Sy)
-//Waitms(50)
-//Battle($x, $y, $Sx, $Sy)
-//Waitms(50)
-
 //ScreenShotEx($FindPos[0], $FindPos[1], $FindPos[2], $FindPos[3], "Test_", 0)
 //Inc($Att, 1)
-//LogWrite (" ")
 //end_cyc
 //LogWrite (" ")
 //LogWrite ("Количество попыток : ", $Att, ", удачных: ", $AttS)
 //halt
 //______________________________________________________________________________
+
 //                            ___Скриншотилка___
 //______________________________________________________________________________
-//WNDPos(WNDFind("LimbusCompany", 0), 0, 0)
-//																	  
-//For($XPG = 1920, $XPG > 599, -88)
-//   WNDSize(WNDFind("LimbusCompany", 0), $XPG, Round($XPG*0.5625 ,0))
-//   Wait(2)
-//   
-//   WNDFind()
-//   
 //   _________________
-//Экран эвента 
-//   $AnglesTest[0] = $x
-//   $AnglesTest[1] = $y
-//   $AnglesTest[2] = $x
-//   $AnglesTest[3] = $y
-
-//  
-//   $Pxl_Count = PxlCount($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], 8355839)
-
-//   //Жёлтый: 8388607 Красный: 8355839 Белый: 16777215
+//Skip    
+//   $AnglesTest[0] = Round(($Sx*0.4403),0)+$x
+//   $AnglesTest[1] = Round($Sx*0.5625*(0.4032-0.5)+0.5*$Sy,0)+$y
+//   $AnglesTest[2] = Round(($Sx*0.4961),0)+$x
+//   $AnglesTest[3] = Round($Sx*0.5625*(0.456-0.5)+0.5*$Sy,0)+$y
+//Choices
+//   $AnglesTest[0] = Round(($Sx*0.5096),0)+$x
+//   $AnglesTest[1] = Round($Sx*0.5625*(0.1177-0.5)+0.5*$Sy,0)+$y
+//   $AnglesTest[2] = Round(($Sx*0.6712),0)+$x
+//   $AnglesTest[3] = Round($Sx*0.5625*(0.2289-0.5)+0.5*$Sy,0)+$y
+//Mark
+//   $AnglesTest[0] = Round(($Sx*0.8895),0)+$x
+//   $AnglesTest[1] = Round($Sx*0.5625*(0.5060-0.5)+0.5*$Sy,0)+$y
+//   $AnglesTest[2] = Round(($Sx*0.9156),0)+$x
+//   $AnglesTest[3] = Round($Sx*0.5625*(0.5524-0.5)+0.5*$Sy,0)+$y
+//Commence/Continue/Proceed  
+//   $AnglesTest[0] = Round(($Sx*0.7989),0)+$x
+//   $AnglesTest[1] = Round($Sx*0.5625*(0.8341-1)+$Sy,0)+$y
+//   $AnglesTest[2] = Round(($Sx*0.9708),0)+$x
+//   $AnglesTest[3] = Round($Sx*0.5625*(0.9601-1)+$Sy,0)+$y
 //   _________________
-//   
 //   GetScreen($x, $y, $Sx+$x, $Sy+$y)
 //   ColorMode(7)
 //   
 //   $Pxl_Count = PxlCount($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], 8355839)
-//   LogWrite ("Разрешение: ", $XPG, ":", Round(($XPG*0.5625),0), " Количество пикселей: ", $Pxl_Count)
+//   //Жёлтый: 8388607 Красный: 8355839 Белый: 16777215
+//   LogWrite ("Разрешение: ", $Pxl, ":", Round(($Pxl*0.5625),0), " Количество пикселей: ", $Pxl_Count)
+////   Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839, "Down", "Event/Con", 7)
+//   
 //   ScreenShotEx($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], "Proceed_", 0)
-//   Waitms(100)
+//   Waitms(50)
+//Inc($Att, 1)
 //end_cyc
-
+//LogWrite (" ")
+//LogWrite ("Количество попыток : ", $Att, ", удачных: ", $AttS)
 //halt
-
-//$XPG = 600
-//WNDSIZE(WNDFIND("LimbusCompany", 0), $XPG, ROUND($XPG *0.625 ,0))
-//WAIT(2)
-//Экран эвента 
-//   $AnglesTest[0] = $x
-//   $AnglesTest[1] = Round($Sx*0.5625*(0-0.5)+0.5*$Sy,0)+$y
-//   $AnglesTest[2] = $Sx+$x
-//   $AnglesTest[3] = Round($Sx*0.5625*(1-0.5)+0.5*$Sy,0)+$y
-
-//Skip    
-//   $EventSkip[0] = Round(($Sx*0.4403),0)+$x
-//   $EventSkip[1] = Round($Sx*0.5625*(0.4032-0.5)+0.5*$Sy,0)+$y
-//   $EventSkip[2] = Round(($Sx*0.4961),0)+$x
-//   $EventSkip[3] = Round($Sx*0.5625*(0.456-0.5)+0.5*$Sy,0)+$y
-//Commence/Continue/Proceed ComConPro   
-//   $EventComConPro[0] = Round(($Sx*0.7989),0)+$x
-//   $EventComConPro[1] = Round($Sx*0.5625*(0.8341-1)+$Sy,0)+$y
-//   $EventComConPro[2] = Round(($Sx*0.9708),0)+$x
-//   $EventComConPro[3] = Round($Sx*0.5625*(0.9601-1)+$Sy,0)+$y
-//Choices/Result ChoRes   
-//   $EventChoRes[0] = Round(($Sx*0.5096),0)+$x
-//   $EventChoRes[1] = Round($Sx*0.5625*(0.1177-0.5)+0.5*$Sy,0)+$y
-//   $EventChoRes[2] = Round(($Sx*0.6712),0)+$x
-//   $EventChoRes[3] = Round($Sx*0.5625*(0.2289-0.5)+0.5*$Sy,0)+$y
-//Перещёлкивание грешников
-//LClick(Round(($SxEx*(0,6826+($Sinner-1)*0,0615)),0)+$xEx, Round($SxEx*0.5625*(0.8906-1)+$SyEx,0)+$yEx)
-//Координаты кнопки Skip
-//LClick(Round(($Sx*0,4643),0)+$x, Round($Sx*0.5625*(0,4263-0.5)+0.5*$Sy,0)+$y)
-//Координаты первого выбора
-//LClick(Round(($Sx*0,7196),0)+$x, Round($Sx*0.5625*(0,2956-0.5)+0.5*$Sy,0)+$y)
 //______________________________________________________________________________ 
