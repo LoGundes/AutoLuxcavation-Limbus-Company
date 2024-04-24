@@ -10,6 +10,11 @@ and the free time we all deserve.
 **My discord for personal communication on ideas or problems**: lo_gundes
 ###### But please post main discussions in the Discussions panel of GitHub.
 
+## Mod start conditions
+
+Automatic Luxcavation works at any basic and intermediate  
+screen resolutions from 1920-1080px to 600-338px.   
+
 ## Short installation and startup instructions
 
 [Open detailed instructions](#detailed-installation-instructions)
@@ -113,6 +118,11 @@ which is unlikely to be banned.
 **Мой дискорд для личного общения по идеям или проблемам**: lo_gundes
 ###### Но основные обсуждения прошу писать в панели Дискуссий(Discussions) Гитхаба
 
+## Условия запуска мода
+
+Автоматическая Светодобыча работает при любых основных и промежуточных  
+разрешениях экрана от 1920-1080px до 600-338px.   
+
 ## Краткая инструкция по установке и запуску
 
 [Открыть подробную инструкцию](#подробная-инструкция-по-установке)
@@ -196,12 +206,12 @@ which is unlikely to be banned.
 
 ## Разные вопросы о легальности
 
-Я никак не связан с [ProjectMoon](https://twitter.com/ProjMoonStudio).
-Разрешения на распространение мода у меня нет и используйте его
-на свой страх и риск.
+Я никак не связан с [ProjectMoon](https://twitter.com/ProjMoonStudio).  
+Разрешения на распространение мода у меня нет и используйте его  
+на свой страх и риск.  
 
-Однако могу пока что утверждать, что засечь этот мод не должны, 
-так как все клики происходят из стороннего русского приложения,
+Однако могу пока что утверждать, что засечь этот мод не должны,   
+так как все клики происходят из стороннего русского приложения,  
 которое вряд ли забанят.  
   
 \_\_\_\_\_\_\_\_\_\_ [\[Ru\]](#ru) [\[En\]](#en) \_\_\_\_\_\_\_\_\_\_  
