@@ -119,7 +119,7 @@ which is unlikely to be banned.
 
 1. Перейдите на страницу последней версии перевода нажатием по этой кнопке:
 
-   [![Открыть страницу скачивания]](https://github.com/LoGundes/AutoLuxcavation-LimbusCompany/releases/latest)
+   [Открыть страницу скачивания](https://github.com/LoGundes/AutoLuxcavation-LimbusCompany/releases/latest)
 
    и там скачайте архив.
 
