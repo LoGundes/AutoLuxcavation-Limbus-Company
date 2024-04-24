@@ -11,11 +11,11 @@ and the free time we all deserve.
 
 ## Short installation and startup instructions
 
-[Open detailed instructions](#detailed-instructions-for-installation)
+[Open detailed instructions](#detailed-installation-instructions)
 
 1. Go to the latest translation page by clicking this button:
 
-   [![Open download page]](https://github.com/LoGundes/AutoLuxcavattion_Limbus/releases/latest)
+   [Open download page](https://github.com/LoGundes/AutoLuxcavattion_Limbus/releases/latest)
 
    and there download the archive.
 
@@ -31,7 +31,7 @@ and the free time we all deserve.
 ## Upgrade Instructions
 
 Basically, you can just repeat the steps from the
-[installation instructions](#short-instruction-to-install): download the new version of the mod and
+[installation instructions](#short-installation-and-startup-instructions): download the new version of the mod and
 unzip it with file replacement, which will overwrite all files of the previous version. But I recommend
 first delete the entire AutoLuxcavattion_Limbus folder from the game folder.
 
