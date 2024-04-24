@@ -1,4 +1,4 @@
-[RU](#[RU]) [EN](#[EN])
+[RU](#[ru]) [EN](#[en])
 # [EN]
 # Limbus Company mod for automatic Light mining
 
@@ -57,11 +57,11 @@ then click on ‘View Local Files’:
 
 This will open the installation folder in explorer. Typically, Steam has this folder located in:
 
-| Operating System | Installation Folder Path |
+| Operating System     | Installation Folder Path                                              |
 | -------------------- | --------------------------------------------------------------------- |
-| **MS Windows** | `C:\Program Files\Steam\steamapps\common/Limbus Company` | |
-| **macOS** | `~/Library/Application Support/Steam/steamapps/common/Limbus Company` |
-| | **GNU/Linux** | `~/.local/share/Steam/steamapps/common/Limbus Company` | |
+| **MS Windows**       | `C:\Program Files\Steam\steamapps\common\Limbus Company`              |
+| **macOS**            | `~/Library/Application Support/Steam/steamapps/common/Limbus Company` |
+| **GNU/Linux**        | `~/.local/share/Steam/steamapps/common/Limbus Company`                |
 
 ### Step 3: Installing the mod
 
@@ -100,7 +100,7 @@ as all clicks are coming from a third-party Russian application,
 which is unlikely to be banned.
 
 Translated with DeepL.com (free version)
-[RU](#[RU]) [EN](#[EN])
+[RU](#[ru]) [EN](#[en])
 # [RU]
 # Мод Limbus Company для автоматической Светодобычи
 
@@ -200,4 +200,4 @@ Translated with DeepL.com (free version)
 Однако могу пока что утверждать, что засечь этот мод не должны, 
 так как все клики происходят из стороннего русского приложения,
 которое вряд ли забанят.
-[RU](#[RU]) [EN](#[EN])
+[RU](#[ru]) [EN](#[en])
