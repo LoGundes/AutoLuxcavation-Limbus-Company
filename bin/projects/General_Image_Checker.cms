@@ -2,22 +2,22 @@
 
 //                            ___Тест___
 //______________________________________________________________________________
-LogClear
-#include "General_WNDFind.cms"
-$Pxl = 1920
-//$Att = 0
-//$AttS = 0
-//WNDPos(WNDFind("LimbusCompany", 0), 0, 0)
-$Sinner = 0																	  
-//For($Pxl = 1920, $Pxl > 599, -88)
-For($i = 0, $i < 10)
-   $FindCheck[$i] = 0
-end_cyc
+//LogClear
+//#include "General_WNDFind.cms"
+//$Pxl = 1920
+////$Att = 0
+////$AttS = 0
+////WNDPos(WNDFind("LimbusCompany", 0), 0, 0)
+//$Sinner = 0																	  
+////For($Pxl = 1920, $Pxl > 599, -88)
+//For($i = 0, $i < 10)
+//   $FindCheck[$i] = 0
+//end_cyc
 
-//WNDSize(WNDFind("LimbusCompany", 0), $Pxl, Round($Pxl*0.5625 ,0))
-//Waitms(500)
+////WNDSize(WNDFind("LimbusCompany", 0), $Pxl, Round($Pxl*0.5625 ,0))
+////Waitms(500)
 
-WNDFind()
+//WNDFind()
 //______________________________________________________________________________
 
                         ___Нахождение изображения___
@@ -143,16 +143,16 @@ ________________________________________________________________________________
 //For($g = 0, $g < 1, 0)
 //      
 //Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100, 175, 250, 25, 16777215, "Mid", "Event/Skip", 3)
-//Move($Sx+$x-2020, $y+20)
+//Move($Sx+$x-20, $Sy+$y-20)
 //If($FindCheck[3] > 0)
 //   $FindCheck[0] = 0
 //   $Sinner = 0
 //   While($FindCheck[3] > 0)
 //      Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100, 175, 250, 25, 16777215, "Mid", "Event/Skip", 3)
-//      Move($Sx+$x-2020, $y+20)
+//      Move($Sx+$x-20, $y+20)
 //      Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle", 0)
 //      
-//      Image_Checker($x, $y, $Sx, $Sy, 0.5096, 0.0750, 0.6712, 0.1750, -100, 165, 260, 75, 16777215, "Mid", "Event/Choices", 4)
+//      Image_Checker($x, $y, $Sx, $Sy, 0.5096, 0.0750, 0.6712, 0.1750, -290, 450, 590, 200, 8355839, "Mid", "Event/Choices", 4)
 //      If($FindCheck[4] > 0)
 //         Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1100, 1700, 2175, 200, 8355839, "Down", "Event/Proceed", 5)
 //         Image_Checker($x, $y, $Sx, $Sy, 0.8895, 0.3350, 0.9156, 0.3530, -30, 70, 100, 100, 8388607, "Mid", "Event/Mark", 6)
@@ -223,11 +223,11 @@ ________________________________________________________________________________
 //   _________________
 //   GetScreen($x, $y, $Sx+$x, $Sy+$y)
 //   ColorMode(7)
-//   
+////   
 //   $Pxl_Count = PxlCount($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], 8355839)
 //   //Жёлтый: 8388607 Красный: 8355839 Белый: 16777215
 //   LogWrite ("Разрешение: ", $Pxl, ":", Round(($Pxl*0.5625),0), " Количество пикселей: ", $Pxl_Count)
-////   Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839, "Down", "Event/Con", 7)
+////   Image_Checker($x, $y, $Sx, $Sy, 0.5096, 0.0750, 0.6712, 0.1750, -290, 450, 590, 200, 8355839, "Mid", "Event/Choices", 4)
 //   
 //   ScreenShotEx($AnglesTest[0], $AnglesTest[1], $AnglesTest[2], $AnglesTest[3], "Proceed_", 0)
 //   Waitms(50)
