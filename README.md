@@ -1,8 +1,7 @@
-[ru](#ru)
-[en](#en)
+\_\_\_\_\_\_\_\_\_\_ [\[Ru\]](#ru) [\[En\]](#en) \_\_\_\_\_\_\_\_\_\_  
 
-# En
-
+# \[EN\]
+##### Translated with DeepL.com (free version)
 # Limbus Company mod for automatic Light mining
 
 A community mod by some bloke with ~~(or not so much)~~ ~~(definitely not one-armed)~~
@@ -100,13 +99,11 @@ at your own risk.
 
 However, I can say for now that this mod should not be detected, 
 as all clicks are coming from a third-party Russian application,
-which is unlikely to be banned.
-
-Translated with DeepL.com (free version)
-[ru](#ru)
-[en](#en)
-
-# Ru
+which is unlikely to be banned.  
+  
+\_\_\_\_\_\_\_\_\_\_ [\[Ru\]](#ru) [\[En\]](#en) \_\_\_\_\_\_\_\_\_\_  
+  
+# \[RU\]
 
 # Мод Limbus Company для автоматической Светодобычи
 
@@ -205,6 +202,6 @@ Translated with DeepL.com (free version)
 
 Однако могу пока что утверждать, что засечь этот мод не должны, 
 так как все клики происходят из стороннего русского приложения,
-которое вряд ли забанят.
-[ru](#ru)
-[en](#en)
+которое вряд ли забанят.  
+  
+\_\_\_\_\_\_\_\_\_\_ [\[Ru\]](#ru) [\[En\]](#en) \_\_\_\_\_\_\_\_\_\_  
