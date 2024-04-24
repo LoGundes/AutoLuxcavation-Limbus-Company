@@ -2,7 +2,7 @@
 
 # \[EN\]
 ###### Translated with DeepL.com (free version)
-# Limbus Company mod for automatic Light mining
+# Limbus Company mod for automatic luxcavation
 
 A community mod by some bloke with ~~(or not so much)~~ ~~(definitely not one-armed)~~
 and the free time we all deserve. 
@@ -16,7 +16,7 @@ and the free time we all deserve.
 
 1. Go to the latest translation page by clicking this button:
 
-   [Open download page](https://github.com/LoGundes/AutoLuxcavattion_Limbus/releases/latest)
+   [Open download page](https://github.com/LoGundes/AutoLuxcavation-LimbusCompany/releases/latest) 
 
    and there download the archive.
 
@@ -46,7 +46,7 @@ Upgrading to a new version? First take a look at
 **WARNING!!! Please read carefully what you need to download and where you need to download it to!
 
 Go to the page
-[latest version](https://github.com/LoGundes/AutoLuxcavattion_Limbus/releases/latest)
+[latest version](https://github.com/LoGundes/AutoLuxcavation-LimbusCompany/releases/latest)
 
 and manually download the archive named `AutoLuxcavattion_Limbus.rar`. This archive contains the mod itself
 Automatic Light Extraction.
@@ -72,7 +72,7 @@ Extract the files from the archive directly into the game folder:
 ### Step 4. Run the mod 
 
 Start the game and go to the menu with the sinner on the screen.
-Run the AutoLuxcavattion_Limbus.exe file.
+Run the AutoLuxcavation_Limbus.exe file.
 
 ### Step 5. Good luck and enjoy the game!
 
@@ -82,7 +82,7 @@ Run the AutoLuxcavattion_Limbus.exe file.
 
 - Lo Gundes(Death_Gun)
 - [R8'4ST](https://github.com/RaytFost)(co-author of the idea, actively helped with the code)
-  ###### p.s he has his own version of Auto Light Mining, you can try it too.
+  ###### p.s he has his own version of AutoLuxcavation, you can try it too.
 
 
 ### Toasters (testers)
@@ -119,7 +119,7 @@ which is unlikely to be banned.
 
 1. Перейдите на страницу последней версии перевода нажатием по этой кнопке:
 
-   [![Открыть страницу скачивания]](https://github.com/LoGundes/AutoLuxcavattion_Limbus/releases/latest)
+   [Открыть страницу скачивания](https://github.com/LoGundes/AutoLuxcavation-LimbusCompany/releases/latest)
 
    и там скачайте архив.
 
@@ -128,7 +128,7 @@ which is unlikely to be banned.
 
 3. Запустите игру и перейдите в меню с грешником на экране.
 
-4. Запустите файл AutoLuxcavattion_Limbus.exe.
+4. Запустите файл AutoLuxcavation_Limbus.exe.
 
 5. Всё готово! Удачи и приятной игры!
 
@@ -149,7 +149,7 @@ which is unlikely to be banned.
 **ВНИМАНИЕ!!! Пожалуйста, внимательно читайте, что и куда надо скачивать!**
 
 Перейдите на страницу
-[последней версии](https://github.com/LoGundes/AutoLuxcavattion_Limbus/releases/latest)
+[последней версии](https://github.com/LoGundes/AutoLuxcavation-LimbusCompany/releases/latest)
 
 и вручную скачайте архив с именем `AutoLuxcavattion_Limbus.rar`. Этот архив содержит сам мод
 Автоматической Светодобычи.
