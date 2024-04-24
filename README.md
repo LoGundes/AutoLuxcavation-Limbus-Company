@@ -1,7 +1,7 @@
 \_\_\_\_\_\_\_\_\_\_ [\[Ru\]](#ru) [\[En\]](#en) \_\_\_\_\_\_\_\_\_\_  
 
 # \[EN\]
-##### Translated with DeepL.com (free version)
+###### Translated with DeepL.com (free version)
 # Limbus Company mod for automatic Light mining
 
 A community mod by some bloke with ~~(or not so much)~~ ~~(definitely not one-armed)~~
