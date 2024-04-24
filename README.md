@@ -19,7 +19,7 @@ and the free time we all deserve.
    and there download the archive.
 
 2. Extract (with replacement) the files from the downloaded archive directly into the game folder
-   ([**where to find the game folder????**](#step-2-define-path-to-game-folder)).
+   ([**where to find the game folder????**](#step-2-determine-the-path-to-the-game-folder)).
 
 3. Start the game and go to the menu with the sinner on the screen.
 
