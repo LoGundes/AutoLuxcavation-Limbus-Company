@@ -12,7 +12,7 @@ and the free time we all deserve.
 
 ## Mod start conditions
 
-Automatic Light Mining works at any basic and intermediate  
+Automatic Luxcavation works at any basic and intermediate  
 screen resolutions from 1920-1080px to 600-338px.   
 
 ## Short installation and startup instructions
