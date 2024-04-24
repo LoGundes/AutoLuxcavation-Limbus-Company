@@ -1,3 +1,107 @@
+[RU](#[RU]) [EN](#[EN])
+# [EN]
+# Limbus Company mod for automatic Light mining
+
+A community mod by some bloke with ~~(or not so much)~~ ~~(definitely not one-armed)~~
+and the free time we all deserve. 
+
+**My discord for personal communication on ideas or problems**: lo_gundes
+###### But please post main discussions in the Discussions panel of GitHub.
+
+## Short installation and startup instructions
+
+[Open detailed instructions](#detailed-instructions-for-installation)
+
+1. Go to the latest translation page by clicking this button:
+
+   [![Open download page]](https://github.com/LoGundes/AutoLuxcavattion_Limbus/releases/latest)
+
+   and there download the archive.
+
+2. Extract (with replacement) the files from the downloaded archive directly into the game folder
+   ([**where to find the game folder????**](#step-2-define-path-to-game-folder)).
+
+3. Start the game and go to the menu with the sinner on the screen.
+
+4. Run the AutoLuxcavattion_Limbus.exe file.
+
+5. Everything is ready! Good luck and enjoy the game!
+
+## Upgrade Instructions
+
+Basically, you can just repeat the steps from the
+[installation instructions](#short-instruction-to-install): download the new version of the mod and
+unzip it with file replacement, which will overwrite all files of the previous version. But I recommend
+first delete the entire AutoLuxcavattion_Limbus folder from the game folder.
+
+## Detailed installation instructions
+
+Upgrading to a new version? First take a look at
+[upgrade instructions](#upgrade instructions).
+
+### Step 1: Download the translation
+
+**WARNING!!! Please read carefully what you need to download and where you need to download it to!
+
+Go to the page
+[latest version](https://github.com/LoGundes/AutoLuxcavattion_Limbus/releases/latest)
+
+and manually download the archive named `AutoLuxcavattion_Limbus.rar`. This archive contains the mod itself
+Automatic Light Extraction.
+
+### Step 2: Determine the path to the game folder
+
+The path will differ depending on the operating system. In the case of Steam, it is the easiest. 
+Right-click on the game in your library, select ‘Manage’ from the pop-up menu,
+then click on ‘View Local Files’:
+
+This will open the installation folder in explorer. Typically, Steam has this folder located in:
+
+| Operating System | Installation Folder Path |
+| -------------------- | --------------------------------------------------------------------- |
+| **MS Windows** | `C:\Program Files\Steam\steamapps\common/Limbus Company` | |
+| **macOS** | `~/Library/Application Support/Steam/steamapps/common/Limbus Company` |
+| | **GNU/Linux** | `~/.local/share/Steam/steamapps/common/Limbus Company` | |
+
+### Step 3: Installing the mod
+
+Extract the files from the archive directly into the game folder:
+
+### Step 4. Run the mod 
+
+Start the game and go to the menu with the sinner on the screen.
+Run the AutoLuxcavattion_Limbus.exe file.
+
+### Step 5. Good luck and enjoy the game!
+
+### Authors
+
+### Mod Programmer
+
+- Lo Gundes(Death_Gun)
+- [R8'4ST](https://github.com/RaytFost)(co-author of the idea, actively helped with the code)
+  ###### p.s he has his own version of Auto Light Mining, you can try it too.
+
+
+### Toasters (testers)
+
+- Fubuke
+- Spelin_Lucky
+- R8'4ST
+
+### Miscellaneous questions about legality
+
+I am in no way affiliated with [ProjectMoon](https://twitter.com/ProjMoonStudio).
+I do not have permission to distribute the mod and use it
+at your own risk.
+
+However, I can say for now that this mod should not be detected, 
+as all clicks are coming from a third-party Russian application,
+which is unlikely to be banned.
+
+Translated with DeepL.com (free version)
+[RU](#[RU]) [EN](#[EN])
+# [RU]
 # Мод Limbus Company для автоматической Светодобычи
 
 Комьюнити-мод какого-то чела с руками ~~(или не очень)~~ ~~(точно не однорукий)~~
@@ -96,3 +200,4 @@
 Однако могу пока что утверждать, что засечь этот мод не должны, 
 так как все клики происходят из стороннего русского приложения,
 которое вряд ли забанят.
+[RU](#[RU]) [EN](#[EN])
