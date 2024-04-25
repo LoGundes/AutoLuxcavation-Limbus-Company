@@ -8,13 +8,13 @@ Sub(LuxScroll, $Direction, $xScroll, $yScroll, $SxScroll, $SyScroll)
    Case("Right")   
       For($i=0, $i < Round(($SxScroll*0,5),0)+$xScroll, (Round(($SxScroll*0,5),0)+$xScroll)/80)
          WheelUp
-         Waitms(10)
+         Waitms(7)
       end_cyc
       
    Case("Left")
       For($i=0, $i < Round(($SxScroll*0,5),0)+$xScroll, (Round(($SxScroll*0,5),0)+$xScroll)/80)
          WheelDown
-         Waitms(10)
+         Waitms(7)
       end_cyc  
    end_switch
 end_sub

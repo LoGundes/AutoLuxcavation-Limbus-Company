@@ -40,6 +40,16 @@ Wait(1)
 FromMainToLux($x, $y, $Sx, $Sy)
 Wait(1)
 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+//Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400,  465,  730,  200, 8355839,  "Up",   "Battle/Battle", 0)
+//Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.1500, 0.9182, 0.2360, 50,    320,  475,  275, 8388607,  "Mid",  "Battle/Victory", 1)
+//Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.1500, 0.9182, 0.2360, 50,    275,  400,  225, 8355839,  "Mid",  "Battle/Defeat", 2)
+//Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100,  175,  250,  25,  16777215, "Mid",  "Event/Skip", 3)
+//Image_Checker($x, $y, $Sx, $Sy, 0.5096, 0.0750, 0.6712, 0.1750, -290,  450,  590,  200, 8355839,  "Mid",  "Event/Choices", 4)
+//Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1100, 1700, 2175, 200, 8355839,  "Down", "Event/Proceed", 5)
+//Image_Checker($x, $y, $Sx, $Sy, 0.8895, 0.3350, 0.9156, 0.3530, -30,   70,   100,  100, 8388607,  "Mid",  "Event/Mark", 6)
+//Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839,  "Down", "Event/Commence", 7)
+//Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839,  "Down", "Event/Continue", 8)
+
 While($Quantity < $Amount)
    LogClear
     
@@ -51,31 +61,32 @@ While($Quantity < $Amount)
    
    $Attempt = 1
    $AttemptDec = 0
-   For($i = 0, $i < 5)
+   $ImgCheck = 1
+   For($i = 0, $i < 10)
       $FindCheck[$i] = 0
    end_cyc
    While($Quantity = $Quantity_Diff)
-      LogWrite ("Проверка битвы №", $Attempt + 10*$AttemptDec)
-      
-      Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100, 175, 250, 25, 16777215, "Mid", "Event/Skip", 3)
+      LogWrite ("Проверка битвы №", $Attempt + 12*$AttemptDec)
       If($FindCheck[3] > 0)
          $FindCheck[0] = 0
          $Sinner = 0
-         While($FindCheck[3] > 0)
-            Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100, 175, 250, 25, 16777215, "Mid", "Event/Skip", 3)
-            Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle", 0)
-            Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839, "Down", "Event/Continue", 8)
-            Move($Sx+$x-10, $y+10)
+         While($FindCheck[0] = 0)
+            $FindCheck[3] = 0
+            Move($x+20, $Sy+$y-20)
+            Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100,  175,  250,  25,  16777215, "Mid",  "Event/Skip", 3)
+            Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400,  465,  730,  200, 8355839,  "Up",   "Battle/Battle", 0)
+            Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839,  "Down", "Event/Continue", 8)
             
-            Image_Checker($x, $y, $Sx, $Sy, 0.5096, 0.0750, 0.6712, 0.1750, -290, 450, 590, 200, 8355839, "Mid", "Event/Choices", 4)
+            Image_Checker($x, $y, $Sx, $Sy, 0.5096, 0.0750, 0.6712, 0.1750, -290,  450,  590,  200, 8355839,  "Mid",  "Event/Choices", 4)
             If($FindCheck[4] > 0)
-               Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1100, 1700, 2175, 200, 8355839, "Down", "Event/Proceed", 5)
-               Image_Checker($x, $y, $Sx, $Sy, 0.8895, 0.3350, 0.9156, 0.3530, -30, 70, 100, 100, 8388607, "Mid", "Event/Mark", 6)
-               Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839, "Down", "Event/Commence", 7)
+               Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1100, 1700, 2175, 200, 8355839,  "Down", "Event/Proceed", 5)
+               Image_Checker($x, $y, $Sx, $Sy, 0.8895, 0.3350, 0.9156, 0.3530, -30,   70,   100,  100, 8388607,  "Mid",  "Event/Mark", 6)
+               Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839,  "Down", "Event/Commence", 7)
             end_if
-            Image_Checker($x, $y, $Sx, $Sy, 0.8895, 0.3350, 0.9156, 0.3530, -30, 70, 100, 100, 8388607, "Mid", "Event/Mark", 6)
+            
+            Image_Checker($x, $y, $Sx, $Sy, 0.8895, 0.3350, 0.9156, 0.3530, -30,   70,   100,  100, 8388607,  "Mid",  "Event/Mark", 6)
             If($FindCheck[6] > 0)
-               Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839, "Down", "Event/Commence", 7)
+               Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839,  "Down", "Event/Commence", 7)
             end_if
             
             If($FindCheck[7] > 0)
@@ -86,22 +97,27 @@ While($Quantity < $Amount)
                $Sinner = 0
             end_if
          end_cyc
-         $FindCheck[3] = 0
       end_if
+      
+      If($ImgCheck > 3)
+         If($Lux > 6)
+            Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100,  175,  250,  25,  16777215, "Mid",  "Event/Skip", 3)
+         end_if
+         Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.1500, 0.9182, 0.2360, 50,    320,  475,  275, 8388607,  "Mid",  "Battle/Victory", 1)
+         Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.1500, 0.9182, 0.2360, 50,    275,  400,  225, 8355839,  "Mid",  "Battle/Defeat", 2)
+         $ImgCheck = 0
+      end_if
+      Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400,  465,  730,  200, 8355839,  "Up",   "Battle/Battle", 0)
+      LogWrite ("__________")
+      Waitms(50)
 
-      Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.1500, 0.9182, 0.2360, 50, 320, 475, 275, 8388607, "Mid", "Battle/Victory", 1)
-      Image_Checker($x, $y, $Sx, $Sy, 0.7733, 0.1500, 0.9182, 0.2360, 50, 275, 400, 225, 8355839, "Mid", "Battle/Defeat", 2)
-      LogWrite (" ")
-      Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400, 465, 730, 200, 8355839, "Up", "Battle/Battle", 0)
-      LogWrite (" ")
-      Waitms(100)
-
-      If($Attempt / 10 = 1)      
+      If($Attempt / 12 = 1)      
          LogClear
          $Attempt = 0
          Inc($AttemptDec, 1)
       end_if
       Inc($Attempt, 1)
+      Inc($ImgCheck, 1)
    end_cyc
    
    Inc($Quantity_Diff, 1)

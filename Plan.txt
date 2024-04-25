@@ -1,0 +1,6 @@
+p.s. Небольшая тестовая функция была добавлена - При запуске приложения,  
+если у вас не запущен Лимбус, оно предложит его запустить используя окно сообщения,  
+иначе приложение не запустится. (Только при условии правильного расположения мода, см. [Инструкцию по установке](https://github.com/LoGundes/AutoLuxcavation-LimbusCompany?tab=readme-ov-file#%D0%BA%D1%80%D0%B0%D1%82%D0%BA%D0%B0%D1%8F-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B5-%D0%B8-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D1%83)) 
+p.s. A small test feature has been added - On application startup,  
+if you don't have Limbus running, it will prompt you to start it using the message box,  
+otherwise the application will not start. (Only if the mod is properly located, see. [Installation Instructions](https://github.com/LoGundes/AutoLuxcavation-LimbusCompany?tab=readme-ov-file#short-installation-and-startup-instructions)

@@ -24,7 +24,8 @@
 ________________________________________________________________________________
 //Sub(Image_Checker, Горизонтальный-отступ, Вертикальный-отступ, Ширина, Высота, Левый-угол, Левый-угол2, Правый-угол, Правый-угол2, Множитель, Левая-граница, Правая-граница, Погрешность, Цвет, Позиция, Путь)
 Sub(Image_Checker, $xEx, $yEx, $SxEx, $SyEx, $xPos1, $yPos1, $xPos2, $yPos2, $MultPxl, $StartPxl, $FinalPxl, $ErrorPxl, $ColorPxl, $Pos, $Path, $Num)
-   LogWrite ("Image_Checker ", $Path)
+   LogWrite (" Image_Checker ", $Path)
+//   LogWrite ($FindCheck[$Num])
    _________________
    $FindPos[0] = Round(($SxEx*$xPos1),0)+$xEx
 	 $FindPos[1] = Round(($SxEx*$xPos2),0)+$xEx
@@ -60,7 +61,7 @@ Sub(Image_Checker, $xEx, $yEx, $SxEx, $SyEx, $xPos1, $yPos1, $xPos2, $yPos2, $Mu
             If_Picture_In ($FindPos[0], $FindPos[2], $FindPos[1], $FindPos[3], StrConCat("bmp\", $Path, "_", $count, ".bmp"), 0, 92)
                $FindCheck[$Num] = $count
 							 
-               LogWrite (StrConCat("Изображение найдено - ", $Path, "_"), $count)   
+               LogWrite (StrConCat(" Изображение найдено - ", $Path, "_"), $count)   
                Waitms(25)
                $count = 20
             end_if
@@ -75,9 +76,9 @@ Sub(Image_Checker, $xEx, $yEx, $SxEx, $SyEx, $xPos1, $yPos1, $xPos2, $yPos2, $Mu
       GetScreen($xEx, $yEx, $SxEx+$xEx, $SyEx+$yEx)
       ColorMode(7)
       If($PxlCount > $LeftPxl and $PxlCount < $RightPxl)
-      LogWrite (" Индикатор №", $FindCheck[$Num], " Имеется: ", $PxlCount," | Надо: ", $LeftPxl, "-", $RightPxl)
+      LogWrite ("  Индикатор №", $FindCheck[$Num], " Имеется: ", $PxlCount," | Надо: ", $LeftPxl, "-", $RightPxl)
          If_Picture_In($FindPos[0], $FindPos[2], $FindPos[1], $FindPos[3], StrConCat("bmp\", $Path, "_", $FindCheck[$Num], ".bmp"), 0, 92)
-            LogWrite ("-индикатор найден-")
+            LogWrite (" -индикатор найден-")
             Inc($AttS, 1)
             
             WNDBump(WNDFind("LimbusCompany", 0))
