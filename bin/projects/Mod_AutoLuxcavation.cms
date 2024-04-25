@@ -70,11 +70,19 @@ While($Quantity < $Amount)
       If($FindCheck[3] > 0)
          $FindCheck[0] = 0
          $Sinner = 0
+         $AnomalyLog = 0
          While($FindCheck[0] = 0)
+            If($AnomalyLog > 1)
+               $AnomalyLog = 0
+               LogClear
+            end_if
+            LogWrite ("Проверка события")
             $FindCheck[3] = 0
-            Move($x+20, $Sy+$y-20)
-            Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100,  175,  250,  25,  16777215, "Mid",  "Event/Skip", 3)
             Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400,  465,  730,  200, 8355839,  "Up",   "Battle/Battle", 0)
+            For($i = 0,$i < 2, 1)
+               Move($x+20, $Sy+$y-20)
+               Image_Checker($x, $y, $Sx, $Sy, 0.4403, 0.2550, 0.4961, 0.3000, -100,  175,  250,  25,  16777215, "Mid",  "Event/Skip", 3)
+            end_cyc
             Image_Checker($x, $y, $Sx, $Sy, 0.7989, 0.8341, 0.9708, 0.9601, -1275, 1775, 2325, 200, 8355839,  "Down", "Event/Continue", 8)
             
             Image_Checker($x, $y, $Sx, $Sy, 0.5096, 0.0750, 0.6712, 0.1750, -290,  450,  590,  200, 8355839,  "Mid",  "Event/Choices", 4)
@@ -96,6 +104,9 @@ While($Quantity < $Amount)
             If($Sinner = 6)
                $Sinner = 0
             end_if
+            LogWrite ("__________")
+            
+            Inc($AnomalyLog, 1)
          end_cyc
       end_if
       
@@ -109,7 +120,7 @@ While($Quantity < $Amount)
       end_if
       Image_Checker($x, $y, $Sx, $Sy, 0.0000, 0.0000, 0.0849, 0.0000, -400,  465,  730,  200, 8355839,  "Up",   "Battle/Battle", 0)
       LogWrite ("__________")
-      Waitms(50)
+      Waitms(150)
 
       If($Attempt / 12 = 1)      
          LogClear
