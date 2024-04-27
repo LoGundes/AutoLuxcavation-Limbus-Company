@@ -1,5 +1,5 @@
-﻿C:\Users\nagib\Documents\GitHub\AutoLuxcavattion_Limbus\bin\projects\General_Image_Checker.cms
-D:\Point of Depature\Limbus\AutoLuxcavation\bin\projects\AutoLuxcavation.cms
-D:\Point of Depature\Limbus\AutoLuxcavation\projects\AutoLuxcavation.cms
-D:\Point of Depature\Limbus\AutoLuxcavation\projects\LuxSelect.cms
-D:\Point of Depature\Limbus\Limbus Company AutoLuxcavation v5.0\projects\AutoLuxcavation.cms
+﻿C:\Users\юрист\Downloads\.Remove\Programs\GitHub\AutoLuxcavation-Limbus-Company\bin\projects\Mod_AutoLuxcavation.cms
+C:\Users\юрист\Downloads\.Remove\Programs\GitHub\AutoLuxcavation-Limbus-Company\bin\projects\General_Start.cms
+C:\Users\юрист\Downloads\.Remove\Programs\GitHub\AutoLuxcavation-Limbus-Company\bin\projects\Lux_Select.cms
+C:\Users\юрист\Downloads\.Remove\Programs\GitHub\AutoLuxcavation-Limbus-Company\bin\projects\Lux_Menu.cms
+C:\Users\nagib\Documents\GitHub\AutoLuxcavattion_Limbus\bin\projects\General_Image_Checker.cms
